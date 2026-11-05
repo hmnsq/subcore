@@ -4,7 +4,7 @@ message: "If you use this software, please cite it as below."
 version: "0.1.0"
 license: GPL-3.0-or-later
 repository-code: "https://github.com/hmnsq/subcore"
-doi: "__SUBCORE_DOI__"
+doi: "10.5281/zenodo.23966337"
 authors:
   - family-names: Choudhary
     given-names: Abhishek
