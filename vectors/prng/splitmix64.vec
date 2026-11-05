@@ -1,0 +1,58 @@
+# subcore-prng-vectors 1
+# © 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. (this header only) SPDX-License-Identifier: CC0-1.0
+# generator: SplitMix64, next 64-bit output
+# seed: 1477776061723855037
+# source: crate rand_xoshiro-0.6.0 (https://crates.io/api/v1/crates/rand_xoshiro/0.6.0/download, sha256 6f97cdb2a36ed4183de61b2f824cc45c9f1037f28afe0a322e9fff4c108b5aaa), src/splitmix64.rs, test reference(), lines 90-115
+# produced_by: http://xoshiro.di.unimi.it/splitmix64.c (as the crate's test states)
+# format: one output per line, lower-case hexadecimal
+# cases: 50
+1b8cfae92bc829e2
+295883a20d7e72f3
+bb823b1f6575a666
+75cca1d6ff12fb6b
+d222424fdbfb2a67
+ed37247313d27ae7
+e3734ceb6a213c07
+b6df3de5ca769094
+967669b9ee16dbb4
+ed3d03f1e062a6b2
+2e4e109e9d8690dc
+8650a0c62e7b9f80
+9a344a11932e236b
+6d6341825fbdb66a
+4f3b46397517114d
+6c3e095edaa0384a
+4010773becb2997e
+3afedc99f48ff807
+6cc1c1042391f5fc
+46236d3fee500650
+b34a8617eb33efc6
+e4ac11d95768e87d
+471e79aefbe01665
+fb2e88c0e80c67ea
+698612063970f57e
+583e1cdc130787a7
+2a2637e0247b6f9e
+2ca7090ebe054c6d
+8a3468d07187bdf3
+52cacad5cb40bf92
+a68b81d3a416f218
+b0888958fd85650e
+368e33a4bf87280
+73e60894bf113e4c
+c78b9899b749f3ea
+4e7c2186813385ea
+4c7075a166e6a2a5
+762c102e62ee2ef7
+5742baf67732abfc
+cfa76b468d2bc771
+32632d9091c52c0c
+74e1f7d6a3d8aa0e
+92785cd0d2b3e0a9
+96e0c5691cf92248
+782b2f8729eadba4
+82bb69485b84f816
+8f785d1f4ba35c7c
+bb8e39817d878d75
+cb1d59136f5ef3a1
+d5fdc0ab6774ea8d

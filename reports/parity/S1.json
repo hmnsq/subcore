@@ -1,0 +1,138 @@
+{
+ "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+ "node": "v22.23.4",
+ "playwright": "1.63.0",
+ "cases": {
+  "exponential-decay.rk4.csv": {
+   "node_sha256": "8bf153d71627a6dff1c6f21750b3710e83a720c11a2048006e9e1f0c0733c4f3",
+   "bytes": 44451
+  },
+  "exponential-decay.dopri54.csv": {
+   "node_sha256": "7b50d42c02ae3ec93e38ca28ca629c045a6b23ca6e7169f20e3f87bde03511ea",
+   "bytes": 18078
+  },
+  "harmonic-oscillator.rk4.csv": {
+   "node_sha256": "698b3398b918ecbde67f22dc2a9d071d051a2588b33fef2b9f9bc50c45fb830f",
+   "bytes": 134514
+  },
+  "harmonic-oscillator.dopri54.csv": {
+   "node_sha256": "511185ec8483e936845c5a2ba33e3de3a2a4156d11b43d6ee046b02cc80a6f49",
+   "bytes": 27312
+  },
+  "damped-driven-oscillator.rk4.csv": {
+   "node_sha256": "0a7d70e7877af6731de547c87f0748fe07e8bfb409b0ee588c46df00a1cea56f",
+   "bytes": 201693
+  },
+  "damped-driven-oscillator.dopri54.csv": {
+   "node_sha256": "27342d80b48318d4a51c209cd3cbc4f6a488ed057518fc09d363e100c7a01f37",
+   "bytes": 27339
+  },
+  "lorenz.rk4.csv": {
+   "node_sha256": "7521d4cb0137819b1fac086c9fff2fd5e884090f80768958cf83aa99c43ca292",
+   "bytes": 449574
+  },
+  "lorenz.dopri54.csv": {
+   "node_sha256": "ea7b6c3844d994f9e4fd717e4855d339e1eca33aaeb23872d4bf67d35d42f365",
+   "bytes": 36442
+  },
+  "function-generation.csv": {
+   "node_sha256": "f9187bddad56dfa65b2d1f026ab57a7ade033b71532a175db0b901f0e246bc48",
+   "bytes": 176677
+  },
+  "prng.u32.txt": {
+   "node_sha256": "affbbeedc965fb25002556b9cc17eb8a33f82ad2c4989613191b0f76cb31c1f6",
+   "bytes": 89268
+  },
+  "prng.normal.txt": {
+   "node_sha256": "d94c320dcec0e2f5aa42387ff8cde3524b45376392d09240fd4242fbf710e8ad",
+   "bytes": 44996
+  }
+ },
+ "browsers": {
+  "chromium": {
+   "ran": true,
+   "version": "153.0.8010.12",
+   "cases": {
+    "exponential-decay.rk4.csv": {
+     "required": true,
+     "sha256": "8bf153d71627a6dff1c6f21750b3710e83a720c11a2048006e9e1f0c0733c4f3",
+     "identical": true,
+     "max_relative_difference": 0
+    },
+    "exponential-decay.dopri54.csv": {
+     "required": false,
+     "sha256": "7b50d42c02ae3ec93e38ca28ca629c045a6b23ca6e7169f20e3f87bde03511ea",
+     "identical": true,
+     "max_relative_difference": 0
+    },
+    "harmonic-oscillator.rk4.csv": {
+     "required": true,
+     "sha256": "698b3398b918ecbde67f22dc2a9d071d051a2588b33fef2b9f9bc50c45fb830f",
+     "identical": true,
+     "max_relative_difference": 0
+    },
+    "harmonic-oscillator.dopri54.csv": {
+     "required": false,
+     "sha256": "b817a6074bd914c13d3c8f7a08836100e315e50d8050db291b46e2f93b3cb006",
+     "identical": false,
+     "max_relative_difference": 2.7875184379459454e-12
+    },
+    "damped-driven-oscillator.rk4.csv": {
+     "required": true,
+     "sha256": "0a7d70e7877af6731de547c87f0748fe07e8bfb409b0ee588c46df00a1cea56f",
+     "identical": true,
+     "max_relative_difference": 0
+    },
+    "damped-driven-oscillator.dopri54.csv": {
+     "required": false,
+     "sha256": "955be06831c4852c7278e680326b2c89bd67aba54385ef8045a69bf0ee23630b",
+     "identical": false,
+     "max_relative_difference": 9.467171820907255e-13
+    },
+    "lorenz.rk4.csv": {
+     "required": true,
+     "sha256": "7521d4cb0137819b1fac086c9fff2fd5e884090f80768958cf83aa99c43ca292",
+     "identical": true,
+     "max_relative_difference": 0
+    },
+    "lorenz.dopri54.csv": {
+     "required": false,
+     "sha256": "3803f6c18018fa63372102eccc4a278ff87e44edf0201f7eb908c3b799131a74",
+     "identical": false,
+     "max_relative_difference": 2.050478825233496e-12
+    },
+    "function-generation.csv": {
+     "required": false,
+     "sha256": "025ae60161448ca63e5f8e639a2742d37fe43d5a6c75dfac9f034a7911ccd6f9",
+     "identical": false,
+     "max_relative_difference": 2.211658356084202e-16
+    },
+    "prng.u32.txt": {
+     "required": true,
+     "sha256": "affbbeedc965fb25002556b9cc17eb8a33f82ad2c4989613191b0f76cb31c1f6",
+     "identical": true,
+     "max_relative_difference": 0
+    },
+    "prng.normal.txt": {
+     "required": false,
+     "sha256": "6012c7592eda9fc1fd078c586cefc840e4ca9859a02fd80aa7d8753418496352",
+     "identical": false,
+     "max_relative_difference": 3.064913968462174e-16
+    }
+   },
+   "identical": "5/5",
+   "within_cross_engine_bound": "5/5",
+   "criterion": "byte-identical",
+   "passed": true
+  },
+  "firefox": {
+   "ran": false,
+   "not_run": "browserType.launch: Executable doesn't exist at /opt/pw-browsers/firefox-1543/firefox/firefox"
+  },
+  "webkit": {
+   "ran": false,
+   "not_run": "browserType.launch: Executable doesn't exist at /opt/pw-browsers/webkit-2359/pw_run.sh"
+  }
+ },
+ "passed": true
+}

@@ -1,0 +1,31 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: harmonic-oscillator
+  version: 1.0.0
+  title: Harmonic oscillator
+kind: continuous
+semantics: >-
+  Undamped simple harmonic motion, d2x/dt2 = -omega^2 x, written as two first-order equations.
+independent: {name: t, unit: s}
+parameters:
+  - {name: omega, value: 2.0, unit: s-1, description: angular frequency}
+states:
+  - {name: x, unit: m, initial: 1.0, description: displacement}
+  - {name: v, unit: m/s, initial: 0.0, description: velocity}
+equations:
+  - {der: x, expression: "v"}
+  - {der: v, expression: "-omega^2*x"}
+outputs:
+  - {name: x, unit: m, expression: x}
+  - {name: v, unit: m/s, expression: v}
+horizon: {t0: 0.0, t1: 20.0, unit: s}
+solver_defaults: {rk4_step: 0.01, rtol: 1.0e-10, atol: 1.0e-12}
+oracle:
+  kind: analytic
+  solution:
+    - {name: x, expression: "x_0*cos(omega*t) + v_0/omega*sin(omega*t)"}
+    - {name: v, expression: "-x_0*omega*sin(omega*t) + v_0*cos(omega*t)"}
+  error_bound: "closed form; evaluated in binary64, absolute error below 1.0e-14 over the horizon (mpmath check in tools/oracles.py)"
+provenance:
+  source: CMS-03 (MRD section 10.21)
+  evidence: sourced

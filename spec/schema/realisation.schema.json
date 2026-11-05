@@ -1,0 +1,37 @@
+{
+  "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hmnsq.github.io/subcore/spec/schema/realisation.schema.json",
+  "title": "Realisation record (SUB-02)",
+  "description": "Links a representation specification (or a computational model) to a substrate specification through a mechanism, with one capability class (MRD section 9.12). A class other than not_established names the record that justifies it (XSC-02); a simulated result is never a physical claim (XSC-04).",
+  "type": "object",
+  "required": ["representation", "substrate", "mechanism", "capability_class", "evidence"],
+  "additionalProperties": false,
+  "properties": {
+    "_notice": {"type": "string"},
+    "representation": {
+      "type": "object", "required": ["kind", "id", "version"], "additionalProperties": false,
+      "properties": {"kind": {"enum": ["representation", "model"]}, "id": {"type": "string"}, "version": {"type": "string"}, "repository": {"type": "string"}}
+    },
+    "substrate": {
+      "type": "object", "required": ["id", "version"], "additionalProperties": false,
+      "properties": {"id": {"type": "string"}, "version": {"type": "string"}}
+    },
+    "mechanism": {"type": "string", "minLength": 1},
+    "capability_class": {"enum": ["supported", "supported_with_restrictions", "approximate", "simulation_only", "not_realisable", "not_established"]},
+    "bound": {"type": "string"},
+    "constraint": {"type": "string"},
+    "rung": {"enum": ["SPEC", "MODEL", "SIMULATED", "BENCH", "FLIGHT"]},
+    "evidence": {
+      "type": "object", "required": ["state"], "additionalProperties": false,
+      "properties": {"state": {"enum": ["measured", "sourced", "assumed", "not_established"]}, "record": {"type": "string"}, "reason": {"type": "string"}, "citation": {"type": "string"}}
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"capability_class": {"const": "not_established"}}},
+     "then": {"properties": {"evidence": {"required": ["reason"]}}},
+     "else": {"properties": {"evidence": {"required": ["record"]}}}},
+    {"if": {"properties": {"capability_class": {"const": "approximate"}}}, "then": {"required": ["bound"]}},
+    {"if": {"properties": {"capability_class": {"const": "not_realisable"}}}, "then": {"required": ["constraint"]}}
+  ]
+}

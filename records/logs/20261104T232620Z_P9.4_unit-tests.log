@@ -1,0 +1,305 @@
+$ node --test tests/*.test.mjs
+TAP version 13
+# Subtest: bisection closes the bracket to 1e-12 of the step
+ok 1 - bisection closes the bracket to 1e-12 of the step
+  ---
+  duration_ms: 10.143892
+  type: 'test'
+  ...
+# Subtest: a falling ball bounces at the analytic times (restart from the event)
+ok 2 - a falling ball bounces at the analytic times (restart from the event)
+  ---
+  duration_ms: 1.122859
+  type: 'test'
+  ...
+# Subtest: an event can stop the run
+ok 3 - an event can stop the run
+  ---
+  duration_ms: 9.764222
+  type: 'test'
+  ...
+# Subtest: precedence and associativity
+ok 4 - precedence and associativity
+  ---
+  duration_ms: 16.363675
+  type: 'test'
+  ...
+# Subtest: functions
+ok 5 - functions
+  ---
+  duration_ms: 0.370234
+  type: 'test'
+  ...
+# Subtest: refusals carry a code and a position
+ok 6 - refusals carry a code and a position
+  ---
+  duration_ms: 0.919254
+  type: 'test'
+  ...
+# Subtest: no eval, no new Function, no Math.random in the core sources (WEB-04)
+ok 7 - no eval, no new Function, no Math.random in the core sources (WEB-04)
+  ---
+  duration_ms: 1.566645
+  type: 'test'
+  ...
+# Subtest: T-32: every CMS-03 expression re-parses from its Modelica and SPICE forms to the same tree
+ok 8 - T-32: every CMS-03 expression re-parses from its Modelica and SPICE forms to the same tree
+  ---
+  duration_ms: 60.864526
+  type: 'test'
+  ...
+# Subtest: T-32: 3000 seeded random trees round-trip through every form
+ok 9 - T-32: 3000 seeded random trees round-trip through every form
+  ---
+  duration_ms: 718.935027
+  type: 'test'
+  ...
+# Subtest: generated forms evaluate to the same value as the tree
+ok 10 - generated forms evaluate to the same value as the tree
+  ---
+  duration_ms: 0.558767
+  type: 'test'
+  ...
+# Subtest: T-32: whole generated Modelica models and SPICE netlists read back to the model trees
+ok 11 - T-32: whole generated Modelica models and SPICE netlists read back to the model trees
+  ---
+  duration_ms: 153.891598
+  type: 'test'
+  ...
+# Subtest: sha256 equals node crypto (FIPS 180-4 vectors and edge lengths)
+ok 12 - sha256 equals node crypto (FIPS 180-4 vectors and edge lengths)
+  ---
+  duration_ms: 5.334591
+  type: 'test'
+  ...
+# Subtest: canonical JSON sorts keys
+ok 13 - canonical JSON sorts keys
+  ---
+  duration_ms: 0.280331
+  type: 'test'
+  ...
+# Subtest: exponential-decay: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+ok 14 - exponential-decay: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+  ---
+  duration_ms: 38.719771
+  type: 'test'
+  ...
+# Subtest: T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors
+ok 15 - T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors
+  ---
+  duration_ms: 39.89162
+  type: 'test'
+  ...
+# Subtest: harmonic-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+ok 16 - harmonic-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+  ---
+  duration_ms: 9.659159
+  type: 'test'
+  ...
+# Subtest: T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors
+ok 17 - T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors
+  ---
+  duration_ms: 88.470087
+  type: 'test'
+  ...
+# Subtest: damped-driven-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+ok 18 - damped-driven-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+  ---
+  duration_ms: 41.454358
+  type: 'test'
+  ...
+# Subtest: T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors
+ok 19 - T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors
+  ---
+  duration_ms: 44.456131
+  type: 'test'
+  ...
+# Subtest: function generation: the core equals mpmath within 4 machine epsilons times max(1, |y|) (binary64 rounding of the arguments, such as pi*x and 1+x, is amplified by conditioning near the zeros of sin)
+ok 20 - function generation: the core equals mpmath within 4 machine epsilons times max(1, |y|) (binary64 rounding of the arguments, such as pi*x and 1+x, is amplified by conditioning near the zeros of sin)
+  ---
+  duration_ms: 12.35671
+  type: 'test'
+  ...
+# Subtest: T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath
+ok 21 - T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath
+  ---
+  duration_ms: 70.079593
+  type: 'test'
+  ...
+# Subtest: T-36 Lorenz statistics, t 50 to 500: standard deviations and the mean of z within 2 per cent
+ok 22 - T-36 Lorenz statistics, t 50 to 500: standard deviations and the mean of z within 2 per cent
+  ---
+  duration_ms: 680.039249
+  type: 'test'
+  ...
+# Subtest: T-36 Lorenz statistics: means of x and y within 2 per cent of the standard deviation
+not ok 23 - T-36 Lorenz statistics: means of x and y within 2 per cent of the standard deviation # TODO fails: the means of x and y are zero by symmetry, and over t 50 to 500 two different trajectories differ by about 3.4 per cent of the standard deviation; question for the author in reports/completion/P9.6.md
+  ---
+  duration_ms: 423.920748
+  type: 'test'
+  location: '/home/user/build/subcore/tests/oracles.test.mjs:90:1'
+  failureType: 'testCodeFailure'
+  error: 'mean x: -0.013169735246764083 vs 0.25243150604201475, 3.35 per cent of the standard deviation'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/build/subcore/tests/oracles.test.mjs:96:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: SplitMix64 reproduces the reference vector (50 outputs)
+ok 24 - SplitMix64 reproduces the reference vector (50 outputs)
+  ---
+  duration_ms: 21.656788
+  type: 'test'
+  ...
+# Subtest: xoshiro128** 1.1 reproduces the reference vector
+ok 25 - xoshiro128** 1.1 reproduces the reference vector
+  ---
+  duration_ms: 16.378035
+  type: 'test'
+  ...
+# Subtest: createRng is deterministic and its floats lie in [0, 1)
+ok 26 - createRng is deterministic and its floats lie in [0, 1)
+  ---
+  duration_ms: 25.595514
+  type: 'test'
+  ...
+# Subtest: normal deviates have mean near 0 and variance near 1 (100000 samples)
+ok 27 - normal deviates have mean near 0 and variance near 1 (100000 samples)
+  ---
+  duration_ms: 41.848578
+  type: 'test'
+  ...
+# Subtest: Dormand-Prince tableau is consistent (row sums equal c; weights sum to one)
+ok 28 - Dormand-Prince tableau is consistent (row sums equal c; weights sum to one)
+  ---
+  duration_ms: 1.323851
+  type: 'test'
+  ...
+# Subtest: RK4 is fourth order: halving the step divides the error by about 16
+ok 29 - RK4 is fourth order: halving the step divides the error by about 16
+  ---
+  duration_ms: 1.115505
+  type: 'test'
+  ...
+# Subtest: RK4 single step equals the textbook formula on y' = y
+ok 30 - RK4 single step equals the textbook formula on y' = y
+  ---
+  duration_ms: 0.18531
+  type: 'test'
+  ...
+# Subtest: T-34 exponential-decay: fixed-step RK4 within 1e-4 of the amplitude
+ok 31 - T-34 exponential-decay: fixed-step RK4 within 1e-4 of the amplitude
+  ---
+  duration_ms: 79.678652
+  type: 'test'
+  ...
+# Subtest: T-34 exponential-decay: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)
+ok 32 - T-34 exponential-decay: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)
+  ---
+  duration_ms: 9.693056
+  type: 'test'
+  ...
+# Subtest: T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude
+ok 33 - T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude
+  ---
+  duration_ms: 21.755321
+  type: 'test'
+  ...
+# Subtest: T-34 harmonic-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)
+ok 34 - T-34 harmonic-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)
+  ---
+  duration_ms: 15.296246
+  type: 'test'
+  ...
+# Subtest: T-34 damped-driven-oscillator: fixed-step RK4 within 1e-4 of the amplitude
+ok 35 - T-34 damped-driven-oscillator: fixed-step RK4 within 1e-4 of the amplitude
+  ---
+  duration_ms: 58.794395
+  type: 'test'
+  ...
+# Subtest: T-34 damped-driven-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)
+ok 36 - T-34 damped-driven-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)
+  ---
+  duration_ms: 37.876676
+  type: 'test'
+  ...
+# Subtest: a non-finite state stops the run with NONFINITE, naming the state and time
+ok 37 - a non-finite state stops the run with NONFINITE, naming the state and time
+  ---
+  duration_ms: 7.708046
+  type: 'test'
+  ...
+# Subtest: stiffness shows as step-size collapse, never hidden
+ok 38 - stiffness shows as step-size collapse, never hidden
+  ---
+  duration_ms: 8.019826
+  type: 'test'
+  ...
+# Subtest: dopri54 lands exactly on every output time and records its statistics
+ok 39 - dopri54 lands exactly on every output time and records its statistics
+  ---
+  duration_ms: 1.07864
+  type: 'test'
+  ...
+# Subtest: 17 significant digits round-trip every double exactly
+ok 40 - 17 significant digits round-trip every double exactly
+  ---
+  duration_ms: 11.759322
+  type: 'test'
+  ...
+# Subtest: trace write and parse
+ok 41 - trace write and parse
+  ---
+  duration_ms: 26.836417
+  type: 'test'
+  ...
+# Subtest: vector files: both forms
+ok 42 - vector files: both forms
+  ---
+  duration_ms: 1.039655
+  type: 'test'
+  ...
+# Subtest: time units
+ok 43 - time units
+  ---
+  duration_ms: 1.773051
+  type: 'test'
+  ...
+# Subtest: prefixes and compound units
+ok 44 - prefixes and compound units
+  ---
+  duration_ms: 0.845426
+  type: 'test'
+  ...
+# Subtest: angles, percent, temperature, dimensionless
+ok 45 - angles, percent, temperature, dimensionless
+  ---
+  duration_ms: 0.240345
+  type: 'test'
+  ...
+# Subtest: refusals
+ok 46 - refusals
+  ---
+  duration_ms: 0.933712
+  type: 'test'
+  ...
+1..46
+# tests 46
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 1
+# duration_ms 2452.617918
+
+[exit 0]

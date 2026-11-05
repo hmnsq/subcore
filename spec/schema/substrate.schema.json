@@ -1,0 +1,284 @@
+{
+  "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hmnsq.github.io/subcore/spec/schema/substrate.schema.json",
+  "title": "Substrate specification (SUB-01 to SUB-05, MRD section 9.9)",
+  "description": "A physical medium of computation in fifteen sections. Every physical parameter carries an evidence state (SUB-03); every quantity carries a UCUM unit or 1 for dimensionless (SUB-05). A value that is not known is written as not_established with its reason and carries no value (SPC-05). UCUM codes are checked against the core's UCUM reader by tools/validate.py beyond the pattern given here.",
+  "type": "object",
+  "required": ["identity", "medium", "state_space", "state_transitions", "operations", "observability", "controllability",
+    "temporal_behaviour", "noise_and_uncertainty", "resource_constraints", "interface", "units", "parameters",
+    "capabilities", "realisation_models", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "_notice": {"type": "string"},
+    "identity": {
+      "type": "object",
+      "required": ["id", "version", "title"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "title": {"type": "string", "minLength": 1},
+        "description": {"type": "string"}
+      }
+    },
+    "medium": {"enum": ["mechanical", "analogue_electronic", "digital_electronic", "quantum", "optical"]},
+    "state_space": {
+      "type": "object",
+      "required": ["kind", "variables"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {"enum": ["discrete", "continuous", "quantum", "hybrid"]},
+        "description": {"type": "string"},
+        "hilbert_dimension": {"description": "Required for a quantum state space: the dimension as an expression in the parameters, such as 2^n_qubits", "type": "string"},
+        "variables": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "description", "unit"],
+            "additionalProperties": false,
+            "properties": {
+              "name": {"$ref": "#/$defs/name"},
+              "description": {"type": "string"},
+              "unit": {"$ref": "#/$defs/unit"},
+              "range": {
+                "type": "object", "required": ["min", "max"], "additionalProperties": false,
+                "properties": {"min": {"$ref": "#/$defs/quantity"}, "max": {"$ref": "#/$defs/quantity"}}
+              },
+              "values": {"type": "array", "minItems": 1, "items": {"type": ["number", "string"]}}
+            }
+          }
+        }
+      },
+      "if": {"properties": {"kind": {"const": "quantum"}}},
+      "then": {"required": ["hilbert_dimension"]}
+    },
+    "state_transitions": {"$ref": "#/$defs/mechanisms"},
+    "operations": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "mechanism", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"$ref": "#/$defs/name"},
+          "mechanism": {"type": "string", "minLength": 1},
+          "description": {"type": "string"},
+          "inputs": {"type": "array", "items": {"type": "string"}},
+          "outputs": {"type": "array", "items": {"type": "string"}},
+          "relation": {"description": "The ideal relation, in the restricted expression grammar where it is algebraic", "type": "string"}
+        }
+      }
+    },
+    "observability": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "method", "resolution", "disturbance"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"$ref": "#/$defs/name"},
+          "method": {"type": "string"},
+          "resolution": {"$ref": "#/$defs/quantity"},
+          "disturbance": {"type": "string", "description": "What reading the state does to it"}
+        }
+      }
+    },
+    "controllability": {"$ref": "#/$defs/mechanisms"},
+    "temporal_behaviour": {
+      "type": "object",
+      "required": ["latency", "bandwidth", "settling", "time_scaling"],
+      "additionalProperties": false,
+      "properties": {
+        "latency": {"$ref": "#/$defs/quantity"},
+        "bandwidth": {"$ref": "#/$defs/quantity"},
+        "settling": {"$ref": "#/$defs/quantity"},
+        "evolution_time": {"$ref": "#/$defs/quantity"},
+        "time_scaling": {"type": "string", "description": "The admissible time scaling and how it is chosen"}
+      }
+    },
+    "noise_and_uncertainty": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "model", "parameters"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"$ref": "#/$defs/name"},
+          "model": {"type": "string"},
+          "parameters": {"type": "array", "items": {"$ref": "#/$defs/name"}, "description": "Names from the parameters section"}
+        }
+      }
+    },
+    "resource_constraints": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "limit"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"$ref": "#/$defs/name"},
+          "limit": {"$ref": "#/$defs/quantity"},
+          "kind": {"enum": ["maximum", "minimum", "nominal"]},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "interface": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "direction", "to", "method"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"$ref": "#/$defs/name"},
+          "direction": {"enum": ["in", "out", "both"]},
+          "to": {"type": "array", "items": {"enum": ["mechanical", "analogue_electronic", "digital_electronic", "quantum", "optical", "human"]}},
+          "method": {"type": "string"}
+        }
+      }
+    },
+    "units": {
+      "type": "object",
+      "required": ["system", "codes"],
+      "additionalProperties": false,
+      "properties": {
+        "system": {"const": "UCUM"},
+        "codes": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["code", "meaning"], "additionalProperties": false,
+            "properties": {"code": {"$ref": "#/$defs/unit"}, "meaning": {"type": "string"}}
+          }
+        }
+      }
+    },
+    "parameters": {
+      "type": "array", "minItems": 1,
+      "items": {"$ref": "#/$defs/parameter"}
+    },
+    "capabilities": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["model_operation", "realised_by", "evidence"],
+        "additionalProperties": false,
+        "properties": {
+          "model_operation": {"type": "string", "description": "A computational-model operation: integrate, sum, scale, multiply, function, compare, add_discrete, unitary, linear_map, measure, ..."},
+          "realised_by": {"type": "array", "minItems": 1, "items": {"type": "string"}, "description": "Names from the operations section"},
+          "notes": {"type": "string"},
+          "evidence": {"$ref": "#/$defs/evidence"}
+        }
+      }
+    },
+    "realisation_models": {
+      "type": "object",
+      "required": ["executable", "physical"],
+      "additionalProperties": false,
+      "properties": {
+        "executable": {"$ref": "#/$defs/model_ref"},
+        "physical": {"$ref": "#/$defs/model_ref"}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["sources", "evidence"],
+      "additionalProperties": false,
+      "properties": {
+        "sources": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["what"], "additionalProperties": false,
+            "properties": {"what": {"type": "string"}, "repository": {"type": "string"}, "commit": {"type": "string"}, "path": {"type": "string"}}
+          }
+        },
+        "evidence": {"$ref": "#/$defs/evidence"}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9_-]*$"},
+    "name": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+    "unit": {
+      "description": "A UCUM code (case-sensitive form), or 1 for dimensionless",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9.()/%\\[\\]{}+_-]+$"
+    },
+    "evidence": {
+      "description": "An evidence state with what it rests on (SUB-03)",
+      "type": "object",
+      "required": ["state"],
+      "properties": {
+        "state": {"enum": ["measured", "sourced", "assumed", "not_established"]},
+        "record": {"type": "string", "description": "The run record of a measurement"},
+        "citation": {"type": "string"},
+        "assumption": {"type": "string"},
+        "reason": {"type": "string"}
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {"if": {"properties": {"state": {"const": "measured"}}}, "then": {"required": ["record"]}},
+        {"if": {"properties": {"state": {"const": "sourced"}}}, "then": {"required": ["citation"]}},
+        {"if": {"properties": {"state": {"const": "assumed"}}}, "then": {"required": ["assumption"]}},
+        {"if": {"properties": {"state": {"const": "not_established"}}}, "then": {"required": ["reason"]}}
+      ]
+    },
+    "quantity": {
+      "description": "A value with its UCUM unit (SUB-05). An unknown value is not_established with its reason and has no value.",
+      "type": "object",
+      "required": ["unit"],
+      "additionalProperties": false,
+      "properties": {
+        "value": {"type": "number"},
+        "unit": {"$ref": "#/$defs/unit"},
+        "not_established": {"type": "string"},
+        "parameter": {"$ref": "#/$defs/name", "description": "The parameter this quantity is, when it is one"}
+      },
+      "oneOf": [
+        {"required": ["value"], "not": {"required": ["not_established"]}},
+        {"required": ["not_established"], "not": {"required": ["value"]}},
+        {"required": ["parameter"], "not": {"anyOf": [{"required": ["value"]}, {"required": ["not_established"]}]}}
+      ]
+    },
+    "parameter": {
+      "description": "A physical parameter with its evidence state (SUB-03). A not_established parameter has no value, so nothing downstream can consume one (SPC-05).",
+      "type": "object",
+      "required": ["name", "unit", "evidence"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"$ref": "#/$defs/name"},
+        "description": {"type": "string"},
+        "value": {"type": "number"},
+        "unit": {"$ref": "#/$defs/unit"},
+        "evidence": {"$ref": "#/$defs/evidence"}
+      },
+      "if": {"properties": {"evidence": {"properties": {"state": {"const": "not_established"}}}}},
+      "then": {"not": {"required": ["value"]}},
+      "else": {"required": ["value"]}
+    },
+    "mechanisms": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "mechanism"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"$ref": "#/$defs/name"},
+          "mechanism": {"type": "string", "minLength": 1},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "model_ref": {
+      "type": "object",
+      "required": ["description", "where", "state"],
+      "additionalProperties": false,
+      "properties": {
+        "description": {"type": "string"},
+        "where": {"type": "string", "description": "Repository and packet that provide it"},
+        "state": {"enum": ["exists", "planned", "not_established"]},
+        "references": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

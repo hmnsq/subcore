@@ -1,0 +1,28 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: function-generation
+  version: 1.0.0
+  title: Function generation y = f(x)
+kind: function
+semantics: >-
+  The stated set of functions of one variable on 0 <= x <= 1, the inputs of cams (mechanical) and
+  function generators (analogue).
+independent: {name: x, unit: "1"}
+domain: {from: 0.0, to: 1.0, points: 101}
+parameters:
+  - {name: pi, value: 3.141592653589793, unit: "1", description: "pi rounded to the nearest binary64"}
+outputs:
+  - {name: f_sin, unit: "1", expression: "sin(pi*x)"}
+  - {name: f_exp, unit: "1", expression: "exp(-x)"}
+  - {name: f_square, unit: "1", expression: "x^2"}
+  - {name: f_sqrt, unit: "1", expression: "sqrt(x)"}
+  - {name: f_log, unit: "1", expression: "log(1 + x)"}
+  - {name: f_tanh, unit: "1", expression: "tanh(4*x - 2)"}
+  - {name: f_abs, unit: "1", expression: "abs(2*x - 1)"}
+oracle:
+  kind: mpmath
+  vectors: vectors/function-generation/function-generation.vec
+  error_bound: "each function evaluated by mpmath at 40 decimal digits and rounded to binary64; error below one half unit in the last place"
+provenance:
+  source: CMS-03 (MRD section 10.21)
+  evidence: sourced

@@ -1,0 +1,19 @@
+© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. (this PROVENANCE file only)
+SPDX-License-Identifier: CC0-1.0 (this PROVENANCE file only; the vendored files keep their own licence)
+
+library: js-yaml
+version: 5.5.0
+licence: MIT (LICENCE is a byte copy of upstream LICENSE)
+upstream: https://github.com/nodeca/js-yaml
+tag: 5.5.0
+commit: cb62b2dbbaa0b3e7379d83a5d69d8d52d21b6efb (gitHead recorded in the npm registry metadata)
+fetched_from: npm registry tarball js-yaml@5.5.0
+tarball_integrity: sha512-paNr4LFIFPjeeSmwNYdrb8FafLLG/Cr2Af3GjbsHJ5CxIjH4r0c2emlmRdAtpPAieP1gRVzk6buBbVP5gBMGAg==
+tarball_sha256: 23cb2e121ad69acd15fc786b7a9265a81eeeaa9f684ee73e717d6ecdbd8b0c90
+generator: tools/vendor.mjs
+note: Single readable ES module (dist/js-yaml.mjs, unminified, comments kept) as published in the npm tarball; upstream writes the source in TypeScript (src/*.ts) and builds this file. It has no imports.
+
+sha256 of every vendored file (path relative to this folder):
+a07bc24468b9654ce76a547d47a2db282d07733b715db4c73a98bd63961f9550  LICENCE
+213470960d9c2ff1d01f9164e5017749bfc383d8a6ebb8683f35c76e8c6d052b  dist/js-yaml.mjs
+3ad7fe3eba5cf97410524a34ae9638f9c711cf0f25b3239c2ff2b2a604ecea1d  package.json

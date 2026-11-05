@@ -1,0 +1,1388 @@
+{
+ "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+ "subject": "quantum-circuit",
+ "kind": "candidate",
+ "library": "quantum-circuit",
+ "note": "npm quantum-circuit@0.9.251, lib tree; it is CommonJS (require), not an ES module",
+ "source": ".cache/npm/x_quantum-circuit-0.9.251/package/lib",
+ "files": 5,
+ "source_sha256": "1f77dca92fd27a8128ac31cb7c2a4bd4581477e531f80681ea48f101e10d5ea6",
+ "command": "burp check .cache/npm/x_quantum-circuit-0.9.251/package/lib --langs arabic,aramaic,assamese,awadhi,balinese,balochi,batak,bengali,bhojpuri,bodo,buginese,bulgarian,burmese,chhattisgarhi,chinese,dari,dogri,dzongkha,gujarati,hausa_ajami,hebrew,hindi,japanese,javanese,kannada,kashmiri,kashmiri_dev,khmer,konkani,korean,kurdish_sorani,lao,lepcha,limbu,magahi,maithili,malay_jawi,malayalam,mandaic,manipuri_beng,marathi,marwari,nabataean,nepali,newari,odia,pali,pashto,persian,phoenician,prakrit,punjabi,punjabi_shahmukhi,rajasthani,russian,samaritan,sanskrit,santali,saraiki,serbian,shan,sindhi,sindhi_dev,sinhala,sundanese,syriac,tagalog,tamil,telugu,thai,tibetan,tulu,ukrainian,urdu,uyghur,vietnamese --translators glossary --out .cache/tmp/burp/quantum-circuit --json .cache/tmp/burp/quantum-circuit.json --jobs 3",
+ "exit_code": 0,
+ "seconds": 0.616,
+ "stdout_tail": "      5/5      \njavanese                     LATIN           5/5      \nkannada                      LATIN           5/5      \nkashmiri                     LATIN           5/5      \nkashmiri_dev                 LATIN           5/5      \nkhmer                        LATIN           5/5      \nkonkani                      LATIN           5/5      \nkorean                       LATIN           5/5      \nkurdish_sorani               LATIN           5/5      \nlao                          LATIN           5/5      \nlepcha                       LATIN           5/5      \nlimbu                        LATIN           5/5      \nmagahi                       LATIN           5/5      \nmaithili                     LATIN           5/5      \nmalay_jawi                   LATIN           5/5      \nmalayalam                    LATIN           5/5      \nmandaic                      LATIN           5/5      \nmanipuri_beng                LATIN           5/5      \nmarathi                      LATIN           5/5      \nmarwari                      LATIN           5/5      \nnabataean                    LATIN           5/5      \nnepali                       LATIN           5/5      \nnewari                       LATIN           5/5      \nodia                         LATIN           5/5      \npali                         LATIN           5/5      \npashto                       LATIN           5/5      \npersian                      LATIN           5/5      \nphoenician                   LATIN           5/5      \nprakrit                      LATIN           5/5      \npunjabi                      LATIN           5/5      \npunjabi_shahmukhi            LATIN           5/5      \nrajasthani                   LATIN           5/5      \nrussian                      LATIN           5/5      \nsamaritan                    LATIN           5/5      \nsanskrit                     LATIN           5/5      \nsantali                      LATIN           5/5      \nsaraiki                      LATIN           5/5      \nserbian                      LATIN           5/5      \nshan                         LATIN           5/5      \nsindhi                       LATIN           5/5      \nsindhi_dev                   LATIN           5/5      \nsinhala                      LATIN           5/5      \nsundanese                    LATIN           5/5      \nsyriac                       LATIN           5/5      \ntagalog                      LATIN           5/5      \ntamil                        LATIN           5/5      \ntelugu                       LATIN           5/5      \nthai                         LATIN           5/5      \ntibetan                      LATIN           5/5      \ntulu                         LATIN           5/5      \nukrainian                    LATIN           5/5      \nurdu                         LATIN           5/5      \nuyghur                       LATIN           5/5      \nvietnamese                   LATIN           5/5      \n\nburp check: 76 ingestions, 76 reverse to the original byte for byte\n",
+ "stderr_tail": "",
+ "burp_summary": [
+  {
+   "folder": "arabic",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "aramaic",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "assamese",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "awadhi",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "balinese",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "balochi",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "batak",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "bengali",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "bhojpuri",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "bodo",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "buginese",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "bulgarian",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "burmese",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "chhattisgarhi",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "chinese",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "dari",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "dogri",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "dzongkha",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "gujarati",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "hausa_ajami",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "hebrew",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "hindi",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "japanese",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "javanese",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "kannada",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "kashmiri",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "kashmiri_dev",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "khmer",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "konkani",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "korean",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "kurdish_sorani",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "lao",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "lepcha",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "limbu",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "magahi",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "maithili",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "malay_jawi",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "malayalam",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "mandaic",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "manipuri_beng",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "marathi",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "marwari",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "nabataean",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "nepali",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "newari",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "odia",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "pali",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "pashto",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "persian",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "phoenician",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "prakrit",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "punjabi",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "punjabi_shahmukhi",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "rajasthani",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "russian",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "samaritan",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "sanskrit",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "santali",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "saraiki",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "serbian",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "shan",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "sindhi",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "sindhi_dev",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "sinhala",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "sundanese",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "syriac",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "tagalog",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "tamil",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "telugu",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "thai",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "tibetan",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "tulu",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "ukrainian",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "urdu",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "uyghur",
+   "files": 5,
+   "exact": 5
+  },
+  {
+   "folder": "vietnamese",
+   "files": 5,
+   "exact": 5
+  }
+ ],
+ "languages": {
+  "arabic": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "aramaic": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "assamese": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "awadhi": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "balinese": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "balochi": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "batak": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "bengali": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "bhojpuri": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "bodo": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "buginese": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "bulgarian": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "burmese": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "chhattisgarhi": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "chinese": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "dari": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "dogri": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "dzongkha": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "gujarati": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "hausa_ajami": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "hebrew": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "hindi": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "japanese": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "javanese": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "kannada": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "kashmiri": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "kashmiri_dev": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "khmer": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "konkani": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "korean": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "kurdish_sorani": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "lao": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "lepcha": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "limbu": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "magahi": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "maithili": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "malay_jawi": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "malayalam": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "mandaic": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "manipuri_beng": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "marathi": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "marwari": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "nabataean": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "nepali": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "newari": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "odia": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "pali": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "pashto": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "persian": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "phoenician": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "prakrit": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "punjabi": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "punjabi_shahmukhi": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "rajasthani": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "russian": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "samaritan": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "sanskrit": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "santali": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "saraiki": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "serbian": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "shan": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "sindhi": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "sindhi_dev": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "sinhala": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "sundanese": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "syriac": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "tagalog": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "tamil": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "telugu": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "thai": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "tibetan": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "tulu": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "ukrainian": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "urdu": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "uyghur": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  },
+  "vietnamese": {
+   "state": "exact_copied",
+   "files": 5,
+   "exact": 5,
+   "localised": 0,
+   "copied": 5,
+   "js_files": 5,
+   "js_localised": 0,
+   "unsupported": {
+    ".js": 5
+   },
+   "differ": []
+  }
+ },
+ "burp_version": "BURP 2026.10.1"
+}

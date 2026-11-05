@@ -1,0 +1,13 @@
+$ bash ops/regen_check.sh
+wrote .cache/tmp/regen/vectors/damped-driven-oscillator/damped-driven-oscillator.analytic.vec (401 cases, sha256 bba698daaed7f266)
+wrote .cache/tmp/regen/vectors/exponential-decay/exponential-decay.analytic.vec (401 cases, sha256 547efa02f62acd89)
+wrote .cache/tmp/regen/vectors/harmonic-oscillator/harmonic-oscillator.analytic.vec (401 cases, sha256 576ea56830f2910e)
+wrote .cache/tmp/regen/vectors/function-generation/function-generation.vec (101 cases, sha256 d8a4747efe3d31e6)
+wrote .cache/tmp/regen/vectors/lorenz/lorenz.t5.vec (101 cases, sha256 2e0373b99ea0522c)
+wrote .cache/tmp/regen/vectors/lorenz/lorenz.stats.json (45001 samples)
+wrote .cache/tmp/regen/vectors/prng/splitmix64.vec
+wrote .cache/tmp/regen/vectors/prng/xoshiro128starstar.vec
+comparing regenerated vectors with vectors/:
+regen_check: 8 files regenerate byte for byte
+
+[exit 0]

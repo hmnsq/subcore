@@ -1,0 +1,131 @@
+{
+ "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+ "node": "v22.23.4",
+ "node_v8": "12.4.254.21-node.57",
+ "chromium": "153.0.8010.12",
+ "arguments": "x = 3k/20000 for k = 1..20000 (asin, acos: 0.999k/20000; pow: (3k/20000)^(1/5))",
+ "functions": {
+  "sin": {
+   "arguments": 20000,
+   "differ": 656,
+   "first": {
+    "argument_index": 377,
+    "node": 0.05651986458784659,
+    "chromium": 0.05651986458784658
+   }
+  },
+  "cos": {
+   "arguments": 20000,
+   "differ": 675,
+   "first": {
+    "argument_index": 616,
+    "node": 0.9957341563585049,
+    "chromium": 0.9957341563585048
+   }
+  },
+  "tan": {
+   "arguments": 20000,
+   "differ": 747,
+   "first": {
+    "argument_index": 391,
+    "node": 0.05871734118808655,
+    "chromium": 0.058717341188086546
+   }
+  },
+  "asin": {
+   "arguments": 20000,
+   "differ": 1197,
+   "first": {
+    "argument_index": 1870,
+    "node": 0.09354286115971522,
+    "chromium": 0.0935428611597152
+   }
+  },
+  "acos": {
+   "arguments": 20000,
+   "differ": 1106,
+   "first": {
+    "argument_index": 309,
+    "node": 1.5553611639123885,
+    "chromium": 1.5553611639123883
+   }
+  },
+  "atan": {
+   "arguments": 20000,
+   "differ": 1206,
+   "first": {
+    "argument_index": 96,
+    "node": 0.01439900479581639,
+    "chromium": 0.014399004795816388
+   }
+  },
+  "sinh": {
+   "arguments": 20000,
+   "differ": 1621,
+   "first": {
+    "argument_index": 13,
+    "node": 0.0019500012358127348,
+    "chromium": 0.001950001235812735
+   }
+  },
+  "cosh": {
+   "arguments": 20000,
+   "differ": 1393,
+   "first": {
+    "argument_index": 1154,
+    "node": 1.015019251463878,
+    "chromium": 1.0150192514638778
+   }
+  },
+  "tanh": {
+   "arguments": 20000,
+   "differ": 11,
+   "first": {
+    "argument_index": 626,
+    "node": 0.09362499121039197,
+    "chromium": 0.09362499121039196
+   }
+  },
+  "exp": {
+   "arguments": 20000,
+   "differ": 1874,
+   "first": {
+    "argument_index": 219,
+    "node": 1.0333955182872816,
+    "chromium": 1.0333955182872814
+   }
+  },
+  "log": {
+   "arguments": 20000,
+   "differ": 1906,
+   "first": {
+    "argument_index": 10,
+    "node": -6.502290170873973,
+    "chromium": -6.502290170873972
+   }
+  },
+  "log10": {
+   "arguments": 20000,
+   "differ": 4347,
+   "first": {
+    "argument_index": 7,
+    "node": -2.9788107009300617,
+    "chromium": -2.978810700930062
+   }
+  },
+  "sqrt": {
+   "arguments": 20000,
+   "differ": 0,
+   "first": null
+  },
+  "pow": {
+   "arguments": 20000,
+   "differ": 1288,
+   "first": {
+    "argument_index": 28,
+    "node": 0.3346954882832093,
+    "chromium": 0.33469548828320933
+   }
+  }
+ }
+}

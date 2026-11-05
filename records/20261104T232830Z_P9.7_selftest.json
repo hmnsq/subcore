@@ -1,0 +1,238 @@
+{
+ "packet": "P9.7",
+ "step": "selftest",
+ "command": "bash ops/selftest.sh",
+ "exit_code": 0,
+ "started_utc": "2026-11-04T23:28:30.601Z",
+ "finished_utc": "2026-11-04T23:29:17.242Z",
+ "inputs": {
+  "docs/src/cli.js": "c4988b823278f12ccf3125f45ddc843453fe64dd473f58f5a85473534ddf5cbf",
+  "docs/src/errors.js": "9fad1ccc10ffdf974a88b85d10c083483cb2bec5c055c40b947f56a31ccd801a",
+  "docs/src/events.js": "49b188ff1856a2ffff3899b72763da02119943b560d91907f2e1520470ec7fc3",
+  "docs/src/export.js": "ba60410cccbb45a546d1bbbedbaf2dd8bd47c10272c11711f0dc3343d6c46818",
+  "docs/src/expr.js": "c87788e1d639944701e516d6181009a9d7d2f4b22292d9e4b317e0fdeafa02ec",
+  "docs/src/hash.js": "97285f9c92397ded534a897454e41af8761f384c3391d596d4dc5cad3853b27d",
+  "docs/src/prng.js": "7f9c0dc71d7037ca624c5faf9189d3c48d15cf112d74b94beb1ef02abe52912f",
+  "docs/src/solve.js": "50c7f7e0536e82cd8cd9b981ac45cff5eb3c1cd045ef975dd5b88765c762b7d9",
+  "docs/src/spec.js": "77480a2cdf07b18468a5effbc69043eeb8ec3d94b6d9d40068f76aea4ed5d3f0",
+  "docs/src/trace.js": "8ae30c4e647976553b8f40cc483a65f21d999411e46071752a97dfed97066601",
+  "docs/src/units.js": "a6630d7e879da61c1d90b114e5afa3317b9f87dbc6838f2fbdba052c0b414a6d",
+  "docs/src/vectors.js": "73a747afd719494b90b1560178702eab5a3dffa0b87e835283d072a7b66ab450",
+  "tests/burp/control-c/minimal.c": "4e21fef0a2997c63a1f7499b1372828b2691b55fe719743b257d8c7cc097d611",
+  "tests/burp/minimal-esm/minimal.js": "94f5b727cb975a87126fd1601266ed276414fa8409485091fe11396e31af348b",
+  "tests/burp/minimal-esm/minimal.mjs": "94f5b727cb975a87126fd1601266ed276414fa8409485091fe11396e31af348b",
+  "tests/events.test.mjs": "d36596c1bb5afd4cd3d96c3c2f1bc39537b767b1ac7201b69a89b8d1dffdfbb2",
+  "tests/expr.test.mjs": "521b57f25458b0e3aacf0d30308049292225ada92b19626db328ffc416a41ea0",
+  "tests/hash.test.mjs": "21070b53eeaaf76b970adaead5fce6b433ad7f21d8babb485cf13f87067b569f",
+  "tests/oracles.test.mjs": "3819b19ec9fb193a899190e90858c004c94fe88c16ea694a1b3a0e9f24741d2b",
+  "tests/parity.html": "15a3478d61ba35d44a47eb31e3d0d7be036c74cd8660bf55cc6f83f9d6be1438",
+  "tests/parity_cases.mjs": "79189913ad727ee47b7686618c88d83e793aa0b8a90877ac73ecee4b2a130a46",
+  "tests/prng.test.mjs": "7cfcd2552d7d065ca8bf3c43869f12eeac945b9c12b8d9afb1b261ccf263b888",
+  "tests/solve.test.mjs": "e00e6b054f2ed628e2e37036f5e424eff69d155a4c9a88e40ff7568005f3ba8f",
+  "tests/trace.test.mjs": "00a751cae33cf547c6a9a52b6177440dbad8f4f774cc5189174859d63112b87d",
+  "tests/units.test.mjs": "e7db586626678bf801d468fa81babf96cb3e0415b51c2b78b37a79aa0bfba217",
+  "tools/selftest.py": "ca2091778854670ef5163349c3d05f7d4a846cb3e5cf6b56fb1cb20369201b59",
+  "ops/selftest.sh": "08a17695ce423db49b7ff100137dee773761ace0c5c1933d521a19b2f24ffbbf"
+ },
+ "outputs": {
+  "reports/selftest/S1.json": "60aa15914f0cb43c7cda275f12a5b0590cf4a846eddcf687909b49e67aa28a0d",
+  "records/logs/20261104T232830Z_P9.7_selftest.log": "b3ca88baa579dc42b4cd80284ea60bda4be81c4e765e33dd053f46055140674b"
+ },
+ "tool_versions": {
+  "node": "v22.23.4"
+ },
+ "image_digests": {},
+ "results": {
+  "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+  "baseline": {
+   "command": "node --test tests/*.test.mjs",
+   "exit_code": 0,
+   "seconds": 1.9,
+   "failing": []
+  },
+  "mutations": [
+   {
+    "name": "rk4-weight",
+    "defect": "a wrong RK4 coefficient (weight of k3 is 3, not 2)",
+    "file": "docs/src/solve.js",
+    "command": "node --test tests/*.test.mjs",
+    "exit_code": 1,
+    "seconds": 2.1,
+    "caught": true,
+    "failing_tests": [
+     "bisection closes the bracket to 1e-12 of the step",
+     "a falling ball bounces at the analytic times (restart from the event)",
+     "an event can stop the run",
+     "T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors",
+     "T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors",
+     "T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors",
+     "T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath",
+     "RK4 is fourth order: halving the step divides the error by about 16",
+     "RK4 single step equals the textbook formula on y' = y",
+     "T-34 exponential-decay: fixed-step RK4 within 1e-4 of the amplitude",
+     "T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+     "T-34 damped-driven-oscillator: fixed-step RK4 within 1e-4 of the amplitude"
+    ],
+    "output_tail": ""
+   },
+   {
+    "name": "rk4-weight-subtle",
+    "defect": "a wrong RK4 coefficient (weight of k2 is 2.001)",
+    "file": "docs/src/solve.js",
+    "command": "node --test tests/*.test.mjs",
+    "exit_code": 1,
+    "seconds": 2.4,
+    "caught": true,
+    "failing_tests": [
+     "bisection closes the bracket to 1e-12 of the step",
+     "a falling ball bounces at the analytic times (restart from the event)",
+     "an event can stop the run",
+     "T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors",
+     "T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors",
+     "T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath",
+     "RK4 is fourth order: halving the step divides the error by about 16",
+     "RK4 single step equals the textbook formula on y' = y",
+     "T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+     "T-34 damped-driven-oscillator: fixed-step RK4 within 1e-4 of the amplitude"
+    ],
+    "output_tail": ""
+   },
+   {
+    "name": "rk4-node",
+    "defect": "a wrong RK4 coefficient (k4 evaluated at y + h/2 k3)",
+    "file": "docs/src/solve.js",
+    "command": "node --test tests/*.test.mjs",
+    "exit_code": 1,
+    "seconds": 2.1,
+    "caught": true,
+    "failing_tests": [
+     "a falling ball bounces at the analytic times (restart from the event)",
+     "T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors",
+     "T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors",
+     "T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors",
+     "T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath",
+     "RK4 is fourth order: halving the step divides the error by about 16",
+     "RK4 single step equals the textbook formula on y' = y",
+     "T-34 exponential-decay: fixed-step RK4 within 1e-4 of the amplitude",
+     "T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+     "T-34 damped-driven-oscillator: fixed-step RK4 within 1e-4 of the amplitude"
+    ],
+    "output_tail": ""
+   },
+   {
+    "name": "dopri-coefficient",
+    "defect": "a wrong Dormand-Prince coefficient (a32 = 9/41)",
+    "file": "docs/src/solve.js",
+    "command": "node --test tests/*.test.mjs",
+    "exit_code": 1,
+    "seconds": 10.4,
+    "caught": true,
+    "failing_tests": [
+     "T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors",
+     "T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors",
+     "T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors",
+     "T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath",
+     "Dormand-Prince tableau is consistent (row sums equal c; weights sum to one)",
+     "T-34 exponential-decay: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)",
+     "T-34 harmonic-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)",
+     "T-34 damped-driven-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)"
+    ],
+    "output_tail": ""
+   },
+   {
+    "name": "unit-minute",
+    "defect": "a wrong unit factor (min = 61 s)",
+    "file": "docs/src/units.js",
+    "command": "node --test tests/*.test.mjs",
+    "exit_code": 1,
+    "seconds": 1.4,
+    "caught": true,
+    "failing_tests": [
+     "time units"
+    ],
+    "output_tail": ""
+   },
+   {
+    "name": "unit-milli",
+    "defect": "a wrong unit factor (prefix m = 1e-4)",
+    "file": "docs/src/units.js",
+    "command": "node --test tests/*.test.mjs",
+    "exit_code": 1,
+    "seconds": 1.2,
+    "caught": true,
+    "failing_tests": [
+     "time units",
+     "prefixes and compound units"
+    ],
+    "output_tail": ""
+   },
+   {
+    "name": "parser-add-mul",
+    "defect": "a parser precedence error (+ binds tighter than *)",
+    "file": "docs/src/expr.js",
+    "command": "node --test tests/*.test.mjs",
+    "exit_code": 1,
+    "seconds": 1.8,
+    "caught": true,
+    "failing_tests": [
+     "precedence and associativity",
+     "T-32: every CMS-03 expression re-parses from its Modelica and SPICE forms to the same tree",
+     "T-32: 3000 seeded random trees round-trip through every form",
+     "harmonic-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath",
+     "damped-driven-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath",
+     "T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors",
+     "T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath",
+     "T-36 Lorenz statistics, t 50 to 500: standard deviations and the mean of z within 2 per cent",
+     "T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+     "T-34 harmonic-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)",
+     "T-34 damped-driven-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+     "T-34 damped-driven-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)"
+    ],
+    "output_tail": ""
+   },
+   {
+    "name": "parser-neg-pow",
+    "defect": "a parser precedence error (unary minus binds tighter than ^)",
+    "file": "docs/src/expr.js",
+    "command": "node --test tests/*.test.mjs",
+    "exit_code": 1,
+    "seconds": 1.9,
+    "caught": true,
+    "failing_tests": [
+     "precedence and associativity",
+     "T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors",
+     "T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+     "T-34 harmonic-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)"
+    ],
+    "output_tail": ""
+   },
+   {
+    "name": "parser-pow-left",
+    "defect": "a parser precedence error (^ left associative)",
+    "file": "docs/src/expr.js",
+    "command": "node --test tests/*.test.mjs",
+    "exit_code": 1,
+    "seconds": 1.8,
+    "caught": true,
+    "failing_tests": [
+     "precedence and associativity"
+    ],
+    "output_tail": ""
+   },
+   {
+    "name": "vector-stale",
+    "defect": "a vector file that no longer regenerates (one digit changed)",
+    "file": "vectors/harmonic-oscillator/harmonic-oscillator.analytic.vec",
+    "command": "bash ops/regen_check.sh",
+    "exit_code": 1,
+    "seconds": 17.4,
+    "caught": true,
+    "failing_tests": [],
+    "output_tail": "regen/vectors/lorenz/lorenz.t5.vec (101 cases, sha256 2e0373b99ea0522c)\nwrote .cache/tmp/regen/vectors/lorenz/lorenz.stats.json (45001 samples)\nwrote .cache/tmp/regen/vectors/prng/splitmix64.vec\nwrote .cache/tmp/regen/vectors/prng/xoshiro128starstar.vec\ncomparing regenerated vectors with vectors/:\ndiff -r vectors/harmonic-oscillator/harmonic-oscillator.analytic.vec .cache/tmp/regen/vectors/harmonic-oscillator/harmonic-oscillator.analytic.vec\n12c12\n< 5.0000000000000003e-02 9.9500416527802583e-01 -1.9966683329365631e-01\n---\n> 5.0000000000000003e-02 9.9500416527802582e-01 -1.9966683329365631e-01\n"
+   }
+  ],
+  "caught": "10/10"
+ },
+ "state": "done",
+ "notes": "log: records/logs/20261104T232830Z_P9.7_selftest.log"
+}

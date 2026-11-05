@@ -1,0 +1,57 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: optical
+  version: 0.1.0
+  title: Linear optical meshes
+  description: Unitary transfer matrices realised as meshes of Mach-Zehnder interferometers (Guidelines 11).
+medium: optical
+state_space:
+  kind: continuous
+  description: Complex field amplitudes in the waveguide modes.
+  variables:
+    - {name: mode_amplitude, description: "complex field amplitude of one mode, normalised", unit: "1"}
+    - {name: phase_setting, description: a phase shifter's setting, unit: rad, range: {min: {value: 0.0, unit: rad}, max: {value: 6.283185307179586, unit: rad}}}
+state_transitions:
+  - {name: interference, mechanism: light interferes in directional couplers and phase shifters}
+operations:
+  - {name: mzi, mechanism: Mach-Zehnder interferometer with two phase shifters, description: a 2 by 2 unitary on two modes}
+  - {name: mesh, mechanism: Reck (1994) or Clements (2016) arrangement of MZIs, description: an N by N unitary}
+  - {name: detect, mechanism: photodetector, description: intensity measurement}
+observability:
+  - {name: photodetector, method: photodiode per output mode, resolution: {not_established: depends on the detector, unit: W}, disturbance: absorbs the light}
+controllability:
+  - {name: phase_shifter, mechanism: thermo-optic phase shifter setting}
+temporal_behaviour:
+  latency: {not_established: optical path length of the built mesh, unit: s}
+  bandwidth: {not_established: detector and modulator dependent, unit: Hz}
+  settling: {not_established: thermo-optic settling time of the built mesh, unit: s}
+  time_scaling: Steady-state linear maps; no time scaling in the first build.
+noise_and_uncertainty:
+  - {name: loss, model: per-element transmission below one, parameters: [mzi_transmission]}
+  - {name: phase_error, model: Gaussian error on each phase setting, parameters: [phase_error_std]}
+resource_constraints:
+  - {name: mode_count, limit: {parameter: n_modes, unit: "1"}, kind: maximum}
+interface:
+  - {name: modulator_input, direction: in, to: [digital_electronic, analogue_electronic], method: optical modulators}
+  - {name: detector_output, direction: out, to: [digital_electronic, analogue_electronic], method: photodetectors}
+units:
+  system: UCUM
+  codes:
+    - {code: rad, meaning: phase}
+    - {code: "1", meaning: amplitudes and transmissions}
+    - {code: nm, meaning: wavelength}
+    - {code: W, meaning: optical power}
+parameters:
+  - {name: n_modes, value: 4.0, unit: "1", evidence: {state: assumed, assumption: first mesh size for M13}}
+  - {name: wavelength, value: 1550.0, unit: nm, evidence: {state: assumed, assumption: telecommunications C band}}
+  - {name: mzi_transmission, unit: "1", evidence: {state: not_established, reason: taken from the photonic reference at M13}}
+  - {name: phase_error_std, unit: rad, evidence: {state: not_established, reason: taken from the photonic reference at M13}}
+capabilities:
+  - {model_operation: linear_map, realised_by: [mesh, mzi], evidence: {state: sourced, citation: "Reck et al., Phys. Rev. Lett. 73 (1994) 58; Clements et al., Optica 3 (2016) 1460"}}
+realisation_models:
+  executable: {description: linear transfer matrices, where: hmnsq/optisim M13, state: planned, references: [Perceval, Strawberry Fields]}
+  physical: {description: meshes with loss and phase error, where: hmnsq/optisim M13, state: planned}
+provenance:
+  sources:
+    - {what: MRD sections 9.9 to 9.11; Implementation Guidelines section 11}
+  evidence: {state: sourced, citation: "package repsynth 0.3.0, documents 01 and 02"}

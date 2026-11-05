@@ -1,0 +1,18 @@
+{
+  "upload_type": "software",
+  "title": "subcore: shared web core for representation simulators",
+  "version": "0.1.0",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Choudhary, Abhishek",
+      "affiliation": "AyeAI",
+      "orcid": "0009-0002-0684-8320"
+    }
+  ],
+  "description": "Shared web core for the representation simulators, including substrate and model schemas, expression grammar, units, integrators, events, seeded generator, traces, vectors, browser and Node.js command surface, reference containers and runner.",
+  "keywords": ["simulation", "web core", "schemas", "integrators", "events"],
+  "license": "gpl-3.0-or-later",
+  "access_right": "open",
+  "notes": "Copyright (c) 1993-2026 Abhishek Choudhary. All rights reserved. AyeAI."
+}

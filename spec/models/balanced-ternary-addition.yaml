@@ -1,0 +1,25 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: balanced-ternary-addition
+  version: 1.0.0
+  title: Balanced ternary addition
+kind: discrete
+semantics: >-
+  a + b on balanced ternary words, wrapping modulo 3^n, as the reference function of the balanced_ternary
+  representation specification defines it (NUM-02, SPC-03). The model refers to the reference function and
+  its vectors; it does not restate them.
+reference:
+  repository: hmnsq/repsynth
+  spec_id: balanced_ternary
+  spec_version: 0.3.0
+  spec_path: spec/reps/numeric/balanced_ternary.yaml
+  op: add
+  symbols: [bt_add16, bt_add32]
+  header: spec/ref/balanced_ternary/balanced_ternary.h
+  vectors: [conformance/vectors/balanced_ternary/add.16.vec, conformance/vectors/balanced_ternary/add.32.vec]
+oracle:
+  kind: reference_function
+  error_bound: exact
+provenance:
+  source: CMS-03 (MRD section 10.21); NUM-02
+  evidence: sourced

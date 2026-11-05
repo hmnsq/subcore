@@ -1,0 +1,18 @@
+<!doctype html>
+<!-- © 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: GPL-3.0-or-later -->
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>subcore parity</title></head>
+<body>
+<p id="state">running</p>
+<script type="module">
+  import { runCases } from './parity_cases.mjs';
+  const readText = async (p) => {
+    const r = await fetch('../' + p);
+    if (!r.ok) throw new Error(`fetch ${p}: ${r.status}`);
+    return r.text();
+  };
+  runCases(readText).then((out) => { window.parityResult = out; document.getElementById('state').textContent = 'done'; },
+    (e) => { window.parityError = String(e && e.stack || e); document.getElementById('state').textContent = 'error'; });
+</script>
+</body>
+</html>

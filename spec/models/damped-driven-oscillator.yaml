@@ -1,0 +1,43 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: damped-driven-oscillator
+  version: 1.0.0
+  title: Damped driven oscillator
+kind: continuous
+semantics: >-
+  An underdamped oscillator driven by a cosine force per unit mass,
+  d2x/dt2 + 2 zeta omega dx/dt + omega^2 x = F cos(omega_d t).
+independent: {name: t, unit: s}
+parameters:
+  - {name: omega, value: 1.0, unit: s-1, description: natural angular frequency}
+  - {name: zeta, value: 0.1, unit: "1", description: "damping ratio, below 1"}
+  - {name: F, value: 0.5, unit: m/s2, description: drive amplitude per unit mass}
+  - {name: omega_d, value: 0.8, unit: s-1, description: drive angular frequency}
+states:
+  - {name: x, unit: m, initial: 1.0}
+  - {name: v, unit: m/s, initial: 0.0}
+equations:
+  - {der: x, expression: "v"}
+  - {der: v, expression: "-2*zeta*omega*v - omega^2*x + F*cos(omega_d*t)"}
+outputs:
+  - {name: x, unit: m, expression: x}
+  - {name: v, unit: m/s, expression: v}
+horizon: {t0: 0.0, t1: 30.0, unit: s}
+solver_defaults: {rk4_step: 0.01, rtol: 1.0e-10, atol: 1.0e-12}
+oracle:
+  kind: analytic
+  definitions:
+    - {name: decay, expression: "zeta*omega"}
+    - {name: wd, expression: "omega*sqrt(1 - zeta^2)"}
+    - {name: den, expression: "(omega^2 - omega_d^2)^2 + (2*zeta*omega*omega_d)^2"}
+    - {name: C, expression: "F*(omega^2 - omega_d^2)/den"}
+    - {name: D, expression: "F*2*zeta*omega*omega_d/den"}
+    - {name: A, expression: "x_0 - C"}
+    - {name: B, expression: "(v_0 + decay*A - omega_d*D)/wd"}
+  solution:
+    - {name: x, expression: "exp(-decay*t)*(A*cos(wd*t) + B*sin(wd*t)) + C*cos(omega_d*t) + D*sin(omega_d*t)"}
+    - {name: v, expression: "exp(-decay*t)*((B*wd - decay*A)*cos(wd*t) - (A*wd + decay*B)*sin(wd*t)) - C*omega_d*sin(omega_d*t) + D*omega_d*cos(omega_d*t)"}
+  error_bound: "closed form (transient plus steady state); evaluated in binary64, absolute error below 1.0e-14 over the horizon (mpmath check in tools/oracles.py)"
+provenance:
+  source: CMS-03 (MRD section 10.21)
+  evidence: sourced

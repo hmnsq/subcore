@@ -1,0 +1,19 @@
+$ node tools/parity.mjs
+node v22.23.4: 11 cases
+chromium 153.0.8010.12: required cases 5/5 byte-identical, 5/5 within 1e-12: pass
+  required  exponential-decay.rk4.csv: byte-identical
+  reported  exponential-decay.dopri54.csv: byte-identical
+  required  harmonic-oscillator.rk4.csv: byte-identical
+  reported  harmonic-oscillator.dopri54.csv: differs, max relative 2.7875184379459454e-12
+  required  damped-driven-oscillator.rk4.csv: byte-identical
+  reported  damped-driven-oscillator.dopri54.csv: differs, max relative 9.467171820907255e-13
+  required  lorenz.rk4.csv: byte-identical
+  reported  lorenz.dopri54.csv: differs, max relative 2.050478825233496e-12
+  reported  function-generation.csv: differs, max relative 2.211658356084202e-16
+  required  prng.u32.txt: byte-identical
+  reported  prng.normal.txt: differs, max relative 3.064913968462174e-16
+firefox: not run: browserType.launch: Executable doesn't exist at /opt/pw-browsers/firefox-1543/firefox/firefox
+webkit: not run: browserType.launch: Executable doesn't exist at /opt/pw-browsers/webkit-2359/pw_run.sh
+parity: pass; report reports/parity/S1.json
+
+[exit 0]

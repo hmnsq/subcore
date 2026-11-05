@@ -1,0 +1,81 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: mechanical
+  version: 0.1.0
+  title: Mechanical computing mechanisms
+  description: Shafts, gears, differentials, wheel-and-disc integrators, cams, lead screws, counters and ratchets (Guidelines 8.1).
+medium: mechanical
+state_space:
+  kind: hybrid
+  description: Continuous shaft angles and slide positions; discrete detent positions of counter wheels.
+  variables:
+    - {name: shaft_angle, description: angle of a shaft, unit: rad}
+    - {name: shaft_speed, description: angular speed of a shaft, unit: rad/s}
+    - {name: slide_position, description: position of a lead-screw carriage or cam follower, unit: m,
+       range: {min: {value: 0.0, unit: m}, max: {parameter: carriage_travel, unit: m}}}
+    - {name: detent_position, description: position of a counter wheel, unit: "1", values: [-1, 0, 1]}
+state_transitions:
+  - {name: shaft_rotation, mechanism: torque applied through a gear mesh or crank turns a shaft}
+  - {name: carriage_travel, mechanism: lead screw converts shaft rotation into linear travel}
+  - {name: detent_step, mechanism: a carry pawl advances a counter wheel by one detent position}
+operations:
+  - {name: gear_pair, mechanism: external spur gear pair, description: scales an angle by a fixed ratio, relation: "-(z1/z2)*theta1"}
+  - {name: differential, mechanism: bevel or spur-gear differential, description: half the sum of two shaft angles, relation: "(theta_a + theta_b)/2"}
+  - {name: integrator, mechanism: wheel-and-disc integrator, description: wheel turns by the integral of the carriage radius over disc rotation}
+  - {name: cam, mechanism: cam and follower, description: follower position is a tabulated function of cam angle}
+  - {name: lead_screw, mechanism: lead screw and nut, description: linear travel proportional to angle, relation: "p*theta/(2*3.141592653589793)"}
+  - {name: counter_carry, mechanism: counter wheel with carry, description: discrete addition with carry on wrap}
+  - {name: ratchet, mechanism: pawl and ratchet wheel, description: one-way coupling}
+observability:
+  - {name: dial, method: graduated dial on a shaft, resolution: {parameter: dial_resolution, unit: rad}, disturbance: negligible friction torque of the pointer}
+  - {name: plotter, method: pen on a carriage driven by two shafts, resolution: {parameter: plotter_resolution, unit: m}, disturbance: pen drag adds load torque}
+controllability:
+  - {name: crank, mechanism: hand crank or motor on the independent-variable shaft}
+  - {name: setting_wheel, mechanism: set screws and setting wheels fix initial conditions and ratios}
+temporal_behaviour:
+  latency: {not_established: depends on inertia and compliance of the built mechanism, unit: s}
+  bandwidth: {not_established: depends on the lowest torsional resonance of the built mechanism, unit: Hz}
+  settling: {not_established: not measured, unit: s}
+  time_scaling: Machine time is the crank angle; any crank speed below the slip and resonance limits gives the same result, so time scales freely within them.
+noise_and_uncertainty:
+  - {name: backlash, model: dead band on each gear mesh, parameters: [gear_backlash]}
+  - {name: integrator_slip, model: wheel slips when output torque exceeds the friction limit, parameters: [integrator_slip_torque]}
+  - {name: friction, model: viscous and Coulomb friction per shaft, parameters: [shaft_viscous_loss]}
+resource_constraints:
+  - {name: carriage_travel_limit, limit: {parameter: carriage_travel, unit: m}, kind: maximum, description: the integrand range}
+  - {name: shaft_speed_limit, limit: {not_established: set by the built mechanism, unit: rad/s}, kind: maximum}
+interface:
+  - {name: shaft_encoder, direction: out, to: [digital_electronic], method: rotary encoder on an output shaft}
+  - {name: motor_drive, direction: in, to: [digital_electronic, analogue_electronic], method: motor turning an input shaft}
+  - {name: dial_reading, direction: out, to: [human], method: reading a dial}
+units:
+  system: UCUM
+  codes:
+    - {code: rad, meaning: shaft angle}
+    - {code: rad/s, meaning: shaft speed}
+    - {code: m, meaning: lengths and travel}
+    - {code: N.m, meaning: torque}
+    - {code: kg.m2, meaning: moment of inertia}
+    - {code: "1", meaning: "tooth counts, ratios and detent positions"}
+parameters:
+  - {name: gear_module, value: 1.0, unit: mm, evidence: {state: assumed, assumption: working value for printable gears (Guidelines 8.4)}}
+  - {name: pressure_angle, value: 20.0, unit: deg, evidence: {state: sourced, citation: "Implementation Guidelines 8.4, working value 20 degrees"}}
+  - {name: gear_backlash, value: 0.05, unit: mm, evidence: {state: assumed, assumption: a typical clearance for printed gears; replaced by measurement at a bench build}}
+  - {name: carriage_travel, value: 0.1, unit: m, evidence: {state: assumed, assumption: working size of a teaching integrator}}
+  - {name: integrator_slip_torque, unit: N.m, evidence: {state: not_established, reason: depends on wheel material and contact force; measured only on a built integrator}}
+  - {name: shaft_viscous_loss, unit: N.m.s/rad, evidence: {state: not_established, reason: not measured}}
+  - {name: dial_resolution, value: 0.0017453292519943296, unit: rad, evidence: {state: assumed, assumption: a dial graduated in tenths of a degree}}
+  - {name: plotter_resolution, value: 0.0002, unit: m, evidence: {state: assumed, assumption: pen line width}}
+capabilities:
+  - {model_operation: integrate, realised_by: [integrator], evidence: {state: sourced, citation: "Bush, J. Franklin Inst. 212 (1931) 447-488, the differential analyser"}}
+  - {model_operation: sum, realised_by: [differential], evidence: {state: sourced, citation: Guidelines 8.1}}
+  - {model_operation: scale, realised_by: [gear_pair, lead_screw], evidence: {state: sourced, citation: Guidelines 8.1}}
+  - {model_operation: function, realised_by: [cam], evidence: {state: sourced, citation: Guidelines 8.1}}
+  - {model_operation: add_discrete, realised_by: [counter_carry], evidence: {state: sourced, citation: Guidelines 8.3}}
+realisation_models:
+  executable: {description: ideal kinematic network of constraints and integrator equations, where: hmnsq/mechsim P10.2, state: planned, references: [OpenModelica]}
+  physical: {description: "lumped dynamics with inertia, compliance, backlash, friction and slip; geometry for printing", where: hmnsq/mechsim P10.4 and P10.6, state: planned, references: [OpenModelica, Project Chrono]}
+provenance:
+  sources:
+    - {what: MRD section 9.9 and 9.11; Implementation Guidelines section 8}
+  evidence: {state: sourced, citation: "package repsynth 0.3.0, documents 01 and 02"}

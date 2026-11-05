@@ -1,0 +1,203 @@
+{
+ "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+ "files": {
+  "spec/substrates/analogue-electronic.yaml": {
+   "kind": "substrate",
+   "errors": []
+  },
+  "spec/substrates/digital-electronic.yaml": {
+   "kind": "substrate",
+   "errors": []
+  },
+  "spec/substrates/mechanical.yaml": {
+   "kind": "substrate",
+   "errors": []
+  },
+  "spec/substrates/optical.yaml": {
+   "kind": "substrate",
+   "errors": []
+  },
+  "spec/substrates/quantum.yaml": {
+   "kind": "substrate",
+   "errors": []
+  },
+  "spec/models/balanced-ternary-addition.yaml": {
+   "kind": "model",
+   "errors": []
+  },
+  "spec/models/damped-driven-oscillator.yaml": {
+   "kind": "model",
+   "errors": []
+  },
+  "spec/models/exponential-decay.yaml": {
+   "kind": "model",
+   "errors": []
+  },
+  "spec/models/function-generation.yaml": {
+   "kind": "model",
+   "errors": []
+  },
+  "spec/models/harmonic-oscillator.yaml": {
+   "kind": "model",
+   "errors": []
+  },
+  "spec/models/lorenz.yaml": {
+   "kind": "model",
+   "errors": []
+  },
+  "spec/realisations/balanced-ternary.mechanical.yaml": {
+   "kind": "realisation",
+   "errors": []
+  },
+  "spec/realisations/harmonic-oscillator.analogue-electronic.yaml": {
+   "kind": "realisation",
+   "errors": []
+  }
+ },
+ "defects": [
+  {
+   "defect": "parameter without an evidence state",
+   "kind": "substrate",
+   "expected_path": "parameters[2].evidence",
+   "refused": true,
+   "errors": [
+    [
+     "parameters[2].evidence",
+     "schema required: 'evidence' is a required property"
+    ],
+    [
+     "parameters[2]",
+     "schema not: {'name': 'gear_backlash', 'value': 0.05, 'unit': 'mm'} should not be valid under {'required': ['value']}"
+    ]
+   ]
+  },
+  {
+   "defect": "quantity without a unit",
+   "kind": "substrate",
+   "expected_path": "temporal_behaviour.latency.unit",
+   "refused": true,
+   "errors": [
+    [
+     "temporal_behaviour.latency.unit",
+     "schema required: 'unit' is a required property"
+    ]
+   ]
+  },
+  {
+   "defect": "parameter without a unit",
+   "kind": "substrate",
+   "expected_path": "parameters[0].unit",
+   "refused": true,
+   "errors": [
+    [
+     "parameters[0].unit",
+     "schema required: 'unit' is a required property"
+    ]
+   ]
+  },
+  {
+   "defect": "not_established parameter carrying a guessed value",
+   "kind": "substrate",
+   "expected_path": "parameters[4]",
+   "refused": true,
+   "errors": [
+    [
+     "parameters[4]",
+     "schema not: {'name': 'integrator_slip_torque', 'unit': 'N.m', 'evidence': {'state': 'not_established', 'reason': 'depends on wheel material and contact force; measured only on a built integrator'}, 'value': 0.2} should not be valid under {'required': ['value']}"
+    ]
+   ]
+  },
+  {
+   "defect": "sourced parameter without its citation",
+   "kind": "substrate",
+   "expected_path": "parameters[0].evidence.citation",
+   "refused": true,
+   "errors": [
+    [
+     "parameters[0].evidence.citation",
+     "schema required: 'citation' is a required property"
+    ]
+   ]
+  },
+  {
+   "defect": "unknown UCUM code",
+   "kind": "substrate",
+   "expected_path": "parameters[0].unit",
+   "refused": true,
+   "errors": [
+    [
+     "parameters[0].unit",
+     "UNIT at furlong: unknown UCUM unit symbol 'furlong'"
+    ]
+   ]
+  },
+  {
+   "defect": "missing section",
+   "kind": "substrate",
+   "expected_path": "noise_and_uncertainty",
+   "refused": true,
+   "errors": [
+    [
+     "noise_and_uncertainty",
+     "schema required: 'noise_and_uncertainty' is a required property"
+    ]
+   ]
+  },
+  {
+   "defect": "capability realised by an undeclared operation",
+   "kind": "substrate",
+   "expected_path": "capabilities[0].realised_by[0]",
+   "refused": true,
+   "errors": [
+    [
+     "capabilities[0].realised_by[0]",
+     "names operation 'flux_capacitor', which is not declared"
+    ]
+   ]
+  },
+  {
+   "defect": "model state without a unit",
+   "kind": "model",
+   "expected_path": "states[0].unit",
+   "refused": true,
+   "errors": [
+    [
+     "states[0].unit",
+     "schema required: 'unit' is a required property"
+    ],
+    [
+     "model:states[0].unit",
+     "UNIT: quantity without a unit (use 1 for dimensionless)"
+    ]
+   ]
+  },
+  {
+   "defect": "model equation that does not parse",
+   "kind": "model",
+   "expected_path": "equations[1].expression",
+   "refused": true,
+   "errors": [
+    [
+     "equations[1].expression",
+     "PARSE at expr:7: expected a number, a name or '(' but found '^'"
+    ],
+    [
+     "model:equations[1].expression",
+     "PARSE: PARSE at expr:7: expected a number, a name or '(' but found '^'"
+    ]
+   ]
+  },
+  {
+   "defect": "model equation reading an undeclared name",
+   "kind": "model",
+   "expected_path": "model:equations[1].expression",
+   "refused": true,
+   "errors": [
+    [
+     "model:equations[1].expression",
+     "UNBOUND: name 'omegaa' is not declared"
+    ]
+   ]
+  }
+ ]
+}

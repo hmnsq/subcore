@@ -1,0 +1,191 @@
+{
+ "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+ "baseline": {
+  "command": "node --test tests/*.test.mjs",
+  "exit_code": 0,
+  "seconds": 1.9,
+  "failing": []
+ },
+ "mutations": [
+  {
+   "name": "rk4-weight",
+   "defect": "a wrong RK4 coefficient (weight of k3 is 3, not 2)",
+   "file": "docs/src/solve.js",
+   "command": "node --test tests/*.test.mjs",
+   "exit_code": 1,
+   "seconds": 2.1,
+   "caught": true,
+   "failing_tests": [
+    "bisection closes the bracket to 1e-12 of the step",
+    "a falling ball bounces at the analytic times (restart from the event)",
+    "an event can stop the run",
+    "T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors",
+    "T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors",
+    "T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors",
+    "T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath",
+    "RK4 is fourth order: halving the step divides the error by about 16",
+    "RK4 single step equals the textbook formula on y' = y",
+    "T-34 exponential-decay: fixed-step RK4 within 1e-4 of the amplitude",
+    "T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+    "T-34 damped-driven-oscillator: fixed-step RK4 within 1e-4 of the amplitude"
+   ],
+   "output_tail": ""
+  },
+  {
+   "name": "rk4-weight-subtle",
+   "defect": "a wrong RK4 coefficient (weight of k2 is 2.001)",
+   "file": "docs/src/solve.js",
+   "command": "node --test tests/*.test.mjs",
+   "exit_code": 1,
+   "seconds": 2.4,
+   "caught": true,
+   "failing_tests": [
+    "bisection closes the bracket to 1e-12 of the step",
+    "a falling ball bounces at the analytic times (restart from the event)",
+    "an event can stop the run",
+    "T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors",
+    "T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors",
+    "T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath",
+    "RK4 is fourth order: halving the step divides the error by about 16",
+    "RK4 single step equals the textbook formula on y' = y",
+    "T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+    "T-34 damped-driven-oscillator: fixed-step RK4 within 1e-4 of the amplitude"
+   ],
+   "output_tail": ""
+  },
+  {
+   "name": "rk4-node",
+   "defect": "a wrong RK4 coefficient (k4 evaluated at y + h/2 k3)",
+   "file": "docs/src/solve.js",
+   "command": "node --test tests/*.test.mjs",
+   "exit_code": 1,
+   "seconds": 2.1,
+   "caught": true,
+   "failing_tests": [
+    "a falling ball bounces at the analytic times (restart from the event)",
+    "T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors",
+    "T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors",
+    "T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors",
+    "T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath",
+    "RK4 is fourth order: halving the step divides the error by about 16",
+    "RK4 single step equals the textbook formula on y' = y",
+    "T-34 exponential-decay: fixed-step RK4 within 1e-4 of the amplitude",
+    "T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+    "T-34 damped-driven-oscillator: fixed-step RK4 within 1e-4 of the amplitude"
+   ],
+   "output_tail": ""
+  },
+  {
+   "name": "dopri-coefficient",
+   "defect": "a wrong Dormand-Prince coefficient (a32 = 9/41)",
+   "file": "docs/src/solve.js",
+   "command": "node --test tests/*.test.mjs",
+   "exit_code": 1,
+   "seconds": 10.4,
+   "caught": true,
+   "failing_tests": [
+    "T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors",
+    "T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors",
+    "T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors",
+    "T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath",
+    "Dormand-Prince tableau is consistent (row sums equal c; weights sum to one)",
+    "T-34 exponential-decay: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)",
+    "T-34 harmonic-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)",
+    "T-34 damped-driven-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)"
+   ],
+   "output_tail": ""
+  },
+  {
+   "name": "unit-minute",
+   "defect": "a wrong unit factor (min = 61 s)",
+   "file": "docs/src/units.js",
+   "command": "node --test tests/*.test.mjs",
+   "exit_code": 1,
+   "seconds": 1.4,
+   "caught": true,
+   "failing_tests": [
+    "time units"
+   ],
+   "output_tail": ""
+  },
+  {
+   "name": "unit-milli",
+   "defect": "a wrong unit factor (prefix m = 1e-4)",
+   "file": "docs/src/units.js",
+   "command": "node --test tests/*.test.mjs",
+   "exit_code": 1,
+   "seconds": 1.2,
+   "caught": true,
+   "failing_tests": [
+    "time units",
+    "prefixes and compound units"
+   ],
+   "output_tail": ""
+  },
+  {
+   "name": "parser-add-mul",
+   "defect": "a parser precedence error (+ binds tighter than *)",
+   "file": "docs/src/expr.js",
+   "command": "node --test tests/*.test.mjs",
+   "exit_code": 1,
+   "seconds": 1.8,
+   "caught": true,
+   "failing_tests": [
+    "precedence and associativity",
+    "T-32: every CMS-03 expression re-parses from its Modelica and SPICE forms to the same tree",
+    "T-32: 3000 seeded random trees round-trip through every form",
+    "harmonic-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath",
+    "damped-driven-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath",
+    "T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors",
+    "T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath",
+    "T-36 Lorenz statistics, t 50 to 500: standard deviations and the mean of z within 2 per cent",
+    "T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+    "T-34 harmonic-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)",
+    "T-34 damped-driven-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+    "T-34 damped-driven-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)"
+   ],
+   "output_tail": ""
+  },
+  {
+   "name": "parser-neg-pow",
+   "defect": "a parser precedence error (unary minus binds tighter than ^)",
+   "file": "docs/src/expr.js",
+   "command": "node --test tests/*.test.mjs",
+   "exit_code": 1,
+   "seconds": 1.9,
+   "caught": true,
+   "failing_tests": [
+    "precedence and associativity",
+    "T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors",
+    "T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude",
+    "T-34 harmonic-oscillator: dopri54 at tolerance 1e-10 within relative 1e-7 (floor 1e-9)"
+   ],
+   "output_tail": ""
+  },
+  {
+   "name": "parser-pow-left",
+   "defect": "a parser precedence error (^ left associative)",
+   "file": "docs/src/expr.js",
+   "command": "node --test tests/*.test.mjs",
+   "exit_code": 1,
+   "seconds": 1.8,
+   "caught": true,
+   "failing_tests": [
+    "precedence and associativity"
+   ],
+   "output_tail": ""
+  },
+  {
+   "name": "vector-stale",
+   "defect": "a vector file that no longer regenerates (one digit changed)",
+   "file": "vectors/harmonic-oscillator/harmonic-oscillator.analytic.vec",
+   "command": "bash ops/regen_check.sh",
+   "exit_code": 1,
+   "seconds": 17.4,
+   "caught": true,
+   "failing_tests": [],
+   "output_tail": "regen/vectors/lorenz/lorenz.t5.vec (101 cases, sha256 2e0373b99ea0522c)\nwrote .cache/tmp/regen/vectors/lorenz/lorenz.stats.json (45001 samples)\nwrote .cache/tmp/regen/vectors/prng/splitmix64.vec\nwrote .cache/tmp/regen/vectors/prng/xoshiro128starstar.vec\ncomparing regenerated vectors with vectors/:\ndiff -r vectors/harmonic-oscillator/harmonic-oscillator.analytic.vec .cache/tmp/regen/vectors/harmonic-oscillator/harmonic-oscillator.analytic.vec\n12c12\n< 5.0000000000000003e-02 9.9500416527802583e-01 -1.9966683329365631e-01\n---\n> 5.0000000000000003e-02 9.9500416527802582e-01 -1.9966683329365631e-01\n"
+  }
+ ],
+ "caught": "10/10"
+}

@@ -1,0 +1,50 @@
+{
+ "packet": "P9.1",
+ "step": "burp-probe-own-tools",
+ "command": "python3 tools/burp_probe.py --subjects subcore-tools",
+ "exit_code": 0,
+ "started_utc": "2026-11-04T23:30:13.632Z",
+ "finished_utc": "2026-11-04T23:30:19.365Z",
+ "inputs": {
+  "tools/ast_dump.mjs": "10c8eac761d74bdfae1f59f37d7e711652e4410eeba670a853b7122aa2f87dfc",
+  "tools/burp_probe.py": "ed7d07913dcc8b6e367f7356ffd58ea0d1d23eeddd29162f9aa031a394fbbd83",
+  "tools/cli.mjs": "663533aa0117d1e5a87d74dc17d0c4b13d93c8a0908530edac8f67f105096139",
+  "tools/mathcheck.mjs": "ec6b94ea85c46359d1f4890e5def82071fbde2c12b3a82d7e538c7aa7e6cc87c",
+  "tools/oracles.py": "a9abb62afae45942b988af1cd304f47272ab206081cf7c90068e2454b22e248b",
+  "tools/parity.mjs": "19ee1387455544eea2686fb052b4358323a661a7a21a298fb896de62649f3c32",
+  "tools/prng_vectors.mjs": "210c53d3b9e986fd85c7440f76947ed0734bcc5dc11fe1c7123964a9b869e40a",
+  "tools/record.mjs": "905b2e815a3fe923767dc0ba909450498c72aad859c48c0bffe22750803a8784",
+  "tools/selftest.py": "ca2091778854670ef5163349c3d05f7d4a846cb3e5cf6b56fb1cb20369201b59",
+  "tools/speccheck.mjs": "5c06ef20a05f9db725c332ff81becdbfba4508048f531d9295b83ee5e8b8d1ea",
+  "tools/validate.py": "7f0224c2a69828127682f39978d07ab2b285552618e77ec3423e0e0ccda322f4",
+  "tools/vendor.mjs": "685aa2c087f672826a0f13582f5dd4669f44a8316da8c63bd53d664d16a0476e"
+ },
+ "outputs": {
+  "reports/burp/TABLE.md": "641e60dc830098c2712c61ea7916e62abb1dd55a829fb951ef2b84d14aab385f",
+  "reports/burp/control-c.json": "fb0bc355f29f2424aefe4fef1b1d7a27aeac01ca4f9e6e2e3e7c12871b329b6b",
+  "reports/burp/issues/burp-js-unsupported.md": "ea7f4922ae7f272018b861d050f4f0fac5f4aa5ecce5d59616fea1060bb48ba4",
+  "reports/burp/issues.json": "9877c01379f699198acdf404a944fc89e3d71a379f22feaf2a41ac95f8fc0692",
+  "reports/burp/js-yaml.json": "e1888edb9d8f5e8c528ad660bfe664cde8c4207b5239af05cdafb42840d83d0d",
+  "reports/burp/jscad-modeling.json": "497392fbead626e5f8c93bae4ea868608999ca2511a5752bb5a61d4dde939ae7",
+  "reports/burp/mathjs.json": "b1315c947f27674d613db189116b5110dc78ec53bb26c98aefb29b35534dd00a",
+  "reports/burp/minimal-esm.json": "12f85ce400e8c8b8e1a4a6195a60ff8a7c30787f25e4b05263a3a40c88964d97",
+  "reports/burp/planck.json": "669ebf5c1363789707607030b9f206c35bafb5cf102b7b0dc2d6154b654142e0",
+  "reports/burp/quantum-circuit.json": "e694bdaead702d7bab708bf05f27da60eecd56ded66737217642f8fd7ad07af2",
+  "reports/burp/quirk.json": "f96d1d6a5936bf7f449f7c610587edf17aa3ec1908bd4b740b49431c16cc8322",
+  "reports/burp/subcore-src.json": "4c7ed3a3ce84a78ae09e45f86415080ce7e680c591890520c4f540badd76e9cf",
+  "reports/burp/subcore-tools.json": "7db57eaa702a036b595d86e95cceeee89f04fad39635fbcfc693c8cac6056d69",
+  "reports/burp/table.csv": "d691f103249af3b37f9cd7da9a2fa4e3d244c482b79886376e6c89d3d89f692f",
+  "reports/burp/three.json": "8a282b106d152667e586c8189664f75775a2c2544e977630b21b1def9221e0ab",
+  "reports/burp/uplot.json": "a29e19aa84d585cc6ad813a3756658974728a0914a621cb94eaef311b09bf54a",
+  "docs/vendor/ADMISSIONS.csv": "14142d665893a7877347231cca8ad1e2a31adb2e9909fa0673784d52887306ed",
+  "records/logs/20261104T233013Z_P9.1_burp-probe-own-tools.log": "797ce5f9ef4dc636b7b3c19ccfca47feb3f89dda8cf5a39d13194734a7a6469a"
+ },
+ "tool_versions": {
+  "node": "v22.23.4",
+  "burp": "BURP 2026.10.1"
+ },
+ "image_digests": {},
+ "results": {},
+ "state": "done",
+ "notes": "log: records/logs/20261104T233013Z_P9.1_burp-probe-own-tools.log"
+}

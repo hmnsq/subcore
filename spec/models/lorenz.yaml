@@ -1,0 +1,36 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: lorenz
+  version: 1.0.0
+  title: Lorenz system
+kind: continuous
+semantics: >-
+  The Lorenz (1963) system with the classical parameters sigma = 10, rho = 28, beta = 8/3.
+  Chaotic: compared over a short horizon (t up to 5) against mpmath and by attractor statistics.
+independent: {name: t, unit: s}
+parameters:
+  - {name: sigma, value: 10.0, unit: s-1}
+  - {name: rho, value: 28.0, unit: "1"}
+  - {name: beta, value: 2.6666666666666665, unit: s-1, description: "8/3 rounded to the nearest binary64; the oracle uses this same value"}
+states:
+  - {name: x, unit: "1", initial: 1.0}
+  - {name: y, unit: "1", initial: 1.0}
+  - {name: z, unit: "1", initial: 1.0}
+equations:
+  - {der: x, expression: "sigma*(y - x)"}
+  - {der: y, expression: "x*(rho - z) - y"}
+  - {der: z, expression: "x*y - beta*z"}
+outputs:
+  - {name: x, unit: "1", expression: x}
+  - {name: y, unit: "1", expression: y}
+  - {name: z, unit: "1", expression: z}
+horizon: {t0: 0.0, t1: 5.0, unit: s}
+solver_defaults: {rk4_step: 0.001, rtol: 1.0e-12, atol: 1.0e-12}
+oracle:
+  kind: mpmath
+  vectors: vectors/lorenz/lorenz.t5.vec
+  statistics: vectors/lorenz/lorenz.stats.json
+  error_bound: "mpmath Taylor integration (mpmath.odefun) at 30 and 40 decimal digits; their largest difference is recorded in the vector header and is below 1.0e-20"
+provenance:
+  source: CMS-03 (MRD section 10.21); Lorenz, J. Atmos. Sci. 20 (1963) 130-141
+  evidence: sourced

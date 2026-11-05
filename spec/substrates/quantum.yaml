@@ -1,0 +1,64 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: quantum
+  version: 0.1.0
+  title: Gate-model quantum computer
+  description: Qubits manipulated by gates and measured; simulated through Panini Q and existing simulators.
+medium: quantum
+state_space:
+  kind: quantum
+  description: A state vector or density matrix over n qubits.
+  hilbert_dimension: "2^n_qubits"
+  variables:
+    - {name: amplitude, description: a complex amplitude of the state vector, unit: "1"}
+state_transitions:
+  - {name: gate_application, mechanism: control pulses implement a unitary on one or two qubits}
+  - {name: measurement, mechanism: projective measurement in the computational basis}
+  - {name: decoherence, mechanism: coupling to the environment}
+operations:
+  - {name: single_qubit_gate, mechanism: microwave or laser pulse, description: a unitary on one qubit}
+  - {name: two_qubit_gate, mechanism: coupled-qubit interaction, description: an entangling unitary}
+  - {name: measure, mechanism: readout resonator or fluorescence, description: projective measurement}
+  - {name: hamiltonian_evolution, mechanism: analogue evolution under a programmed Hamiltonian, description: "exp(-i H t / hbar)"}
+observability:
+  - {name: readout, method: projective measurement, resolution: {value: 1.0, unit: bit}, disturbance: collapses the measured qubits}
+controllability:
+  - {name: pulse_control, mechanism: timed control pulses with set phase and amplitude}
+temporal_behaviour:
+  latency: {parameter: gate_time, unit: s}
+  bandwidth: {not_established: platform dependent, unit: Hz}
+  settling: {not_established: platform dependent, unit: s}
+  evolution_time: {parameter: coherence_t2, unit: s}
+  time_scaling: Circuit depth must stay well inside the coherence time; time scaling is fixed by the gate durations.
+noise_and_uncertainty:
+  - {name: amplitude_damping, model: T1 relaxation channel, parameters: [coherence_t1]}
+  - {name: dephasing, model: T2 dephasing channel, parameters: [coherence_t2]}
+  - {name: gate_error, model: depolarising channel per gate, parameters: [gate_error_rate]}
+resource_constraints:
+  - {name: qubit_count, limit: {parameter: n_qubits, unit: "1"}, kind: maximum}
+  - {name: temperature, limit: {not_established: platform dependent, unit: K}, kind: maximum}
+interface:
+  - {name: classical_control, direction: both, to: [digital_electronic], method: control electronics and readout digitisation}
+units:
+  system: UCUM
+  codes:
+    - {code: "1", meaning: "amplitudes, probabilities, counts"}
+    - {code: s, meaning: times}
+    - {code: K, meaning: temperature}
+parameters:
+  - {name: n_qubits, value: 8.0, unit: "1", evidence: {state: assumed, assumption: the size of the first circuit set (Test Plan section 5 counts eight outcomes for three qubits; eight qubits bound the state vector in a browser)}}
+  - {name: gate_time, unit: s, evidence: {state: not_established, reason: taken from the reference tool's noise model at P12.4 (Guidelines 10)}}
+  - {name: coherence_t1, unit: s, evidence: {state: not_established, reason: taken from the reference tool's noise model at P12.4}}
+  - {name: coherence_t2, unit: s, evidence: {state: not_established, reason: taken from the reference tool's noise model at P12.4}}
+  - {name: gate_error_rate, unit: "1", evidence: {state: not_established, reason: taken from the reference tool's noise model at P12.4}}
+capabilities:
+  - {model_operation: unitary, realised_by: [single_qubit_gate, two_qubit_gate], evidence: {state: sourced, citation: MRD section 9.10}}
+  - {model_operation: measure, realised_by: [measure], evidence: {state: sourced, citation: MRD section 9.10}}
+  - {model_operation: integrate, realised_by: [hamiltonian_evolution], notes: the harmonic oscillator as a truncated oscillator Hamiltonian (Guidelines 10), evidence: {state: sourced, citation: Guidelines 10}}
+realisation_models:
+  executable: {description: circuits and Hamiltonians, where: hmnsq/repsynth P12.3 and P12.4, state: planned, references: [Panini Q, Qiskit Aer, QuTiP]}
+  physical: {description: noise channels and connectivity taken from the references, where: hmnsq/repsynth P12.4, state: planned}
+provenance:
+  sources:
+    - {what: MRD sections 9.9 to 9.11; Implementation Guidelines section 10}
+  evidence: {state: sourced, citation: "package repsynth 0.3.0, documents 01 and 02"}

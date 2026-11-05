@@ -1,0 +1,21 @@
+# © 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0
+# Iteration S1 of hmnsq/subcore. One step per line: <packet> <step> <container> -- <command>
+# container is node (substrate-node) or ref (substrate-ref). ops/run.sh runs each through tools/record.mjs.
+P9.1 vendor-check node -- node tools/vendor.mjs --check
+P9.1 fetch-candidates node -- bash tools/fetch_candidates.sh
+P9.1 burp-probe node -- python3 tools/burp_probe.py
+P9.2 validate-and-defects node -- python3 tools/validate.py --defects --json reports/validate/P9.2.json
+P9.3 t32-round-trip node -- node --test tests/expr.test.mjs
+P9.4 unit-tests node -- node --test tests/*.test.mjs
+P9.4 parity node -- node tools/parity.mjs
+P9.4 math-functions node -- node tools/mathcheck.mjs
+P9.6 oracle-tests node -- node --test tests/oracles.test.mjs
+P9.6 regen-check node -- bash ops/regen_check.sh
+P9.7 selftest node -- bash ops/selftest.sh
+P9.5 ref-tools ref -- bash tools/ref.sh --list
+P9.5 ref-ngspice ref -- bash tools/ref.sh ngspice exponential-decay
+P9.5 ref-openmodelica ref -- bash tools/ref.sh openmodelica exponential-decay
+P9.5 ref-qiskit ref -- bash tools/ref.sh qiskit-aer bell
+P9.5 ref-qutip ref -- bash tools/ref.sh qutip oscillator
+P9.5 ref-chrono ref -- bash tools/ref.sh chrono gear-pair
+P9.8 verify node -- bash ops/verify.sh

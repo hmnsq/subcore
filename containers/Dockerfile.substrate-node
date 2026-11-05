@@ -1,0 +1,41 @@
+# © 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI.
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# substrate-node (MRD section 9.7): Node.js at a pinned LTS release, Python with burp-ilm and mpmath, and the
+# Playwright browser engines (Chromium, Firefox, WebKit). Track S tests and the BURP probe run here.
+# Built once and kept (PRF-05). Build: ops/run.sh builds it when the image is missing.
+#
+# Base: the Playwright image for Playwright 1.63.0 on Ubuntu 24.04 (upstream mcr.microsoft.com/playwright),
+# which carries Node.js 24.20.0 (LTS) and the three browser builds Playwright 1.63.0 drives. Pinned by digest.
+FROM mcr.microsoft.com/playwright:v1.63.0-noble@sha256:eff16c30e6f3f4af0a03fa4b706120d5e9b0891c344a27d64559aff5900a4a27
+
+# Network settings are passed only by the optional build hook (containers/hooks/); without it the build uses
+# the network directly. A CA bundle, if the hook supplies one, is mounted as a secret and never stored.
+ARG http_proxy
+ARG https_proxy
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+      python3-venv python3-pip gcc g++ git ca-certificates curl \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN --mount=type=secret,id=ca,required=false \
+    if [ -f /run/secrets/ca ]; then export PIP_CERT=/run/secrets/ca; fi; \
+    python3 -m venv /opt/venv \
+ && /opt/venv/bin/pip install --no-cache-dir \
+      burp-ilm==2026.10.1 mpmath==1.4.1 jsonschema==4.26.0 pyyaml==6.0.3
+
+RUN --mount=type=secret,id=ca,required=false \
+    if [ -f /run/secrets/ca ]; then export NPM_CONFIG_CAFILE=/run/secrets/ca; fi; \
+    mkdir -p /opt/node && cd /opt/node \
+ && npm install --no-audit --no-fund playwright@1.63.0
+
+ENV PATH=/opt/venv/bin:$PATH \
+    NODE_PATH=/opt/node/node_modules \
+    PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+WORKDIR /work
+LABEL org.opencontainers.image.title="subcore substrate-node" \
+      org.opencontainers.image.licenses="GPL-3.0-or-later" \
+      org.opencontainers.image.vendor="AyeAI"

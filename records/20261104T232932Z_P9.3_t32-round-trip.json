@@ -1,0 +1,30 @@
+{
+ "packet": "P9.3",
+ "step": "t32-round-trip",
+ "command": "node --test tests/expr.test.mjs",
+ "exit_code": 0,
+ "started_utc": "2026-11-04T23:29:32.334Z",
+ "finished_utc": "2026-11-04T23:29:32.913Z",
+ "inputs": {
+  "spec/grammar/expr.ebnf": "461cc64080d02b5b20a76ffb2b9720b26158cecb95fb5b148f141275f7891496",
+  "spec/models/balanced-ternary-addition.yaml": "ef4d8c3e18cb193ed2946bd8138c2bf48ab6ee867268afae85a049352f255858",
+  "spec/models/damped-driven-oscillator.yaml": "e2d043765aef9cb3bc732583882951fc5ba157e357b304606fc5db7730674553",
+  "spec/models/exponential-decay.yaml": "7041ef69c99e22564fa6f307104651f0ed81c9bc664588ab16a098f27556a7b9",
+  "spec/models/function-generation.yaml": "1624692a2a0ed7ffd4c3ab1ac43c4265007a458d49a2aff75c07bf1400acc649",
+  "spec/models/harmonic-oscillator.yaml": "3c1578792bf9372866dbe15d605b8ee0f982d1887444f89c42a2f3f5081dd71e",
+  "spec/models/lorenz.yaml": "d602c2b35b2bb7ca7c4b63bd037c4c9e440d829d9f0dc3d5eee7558ee0b1930d",
+  "docs/src/expr.js": "c87788e1d639944701e516d6181009a9d7d2f4b22292d9e4b317e0fdeafa02ec",
+  "docs/src/export.js": "ba60410cccbb45a546d1bbbedbaf2dd8bd47c10272c11711f0dc3343d6c46818",
+  "tests/expr.test.mjs": "521b57f25458b0e3aacf0d30308049292225ada92b19626db328ffc416a41ea0"
+ },
+ "outputs": {
+  "records/logs/20261104T232932Z_P9.3_t32-round-trip.log": "6c974c594467b419ea71e383dad183279f58a3e5c8bbf8382c9f84a657f9d7ee"
+ },
+ "tool_versions": {
+  "node": "v22.23.4"
+ },
+ "image_digests": {},
+ "results": {},
+ "state": "done",
+ "notes": "log: records/logs/20261104T232932Z_P9.3_t32-round-trip.log"
+}

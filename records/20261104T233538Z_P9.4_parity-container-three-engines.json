@@ -1,0 +1,304 @@
+{
+ "packet": "P9.4",
+ "step": "parity-container-three-engines",
+ "command": "node tools/parity.mjs --out reports/parity/S1-container.json",
+ "exit_code": 0,
+ "started_utc": "2026-11-04T23:35:38.502Z",
+ "finished_utc": "2026-11-04T23:35:52.006Z",
+ "inputs": {},
+ "outputs": {
+  "reports/parity/S1-container.json": "2ee799df039d259e5d3244544ae2ada1c3186d03231279b884b01ae7b473e64c",
+  "records/logs/20261104T233538Z_P9.4_parity-container-three-engines.log": "7417b7e7d33430dbd07f21b9574f1d8691d73adb3e3ad70bf96ffc0cab56873b"
+ },
+ "tool_versions": {
+  "node": "v24.20.0",
+  "playwright": "1.63.0"
+ },
+ "image_digests": {
+  "hmnsq/subcore-substrate-node:0.1.0": "sha256:ce338b4a9e99ad4e8fed3af93d8234f390417a9ec424fd0b0be17702dc5195a8"
+ },
+ "results": {
+  "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+  "node": "v24.20.0",
+  "playwright": "1.63.0",
+  "cases": {
+   "exponential-decay.rk4.csv": {
+    "node_sha256": "8bf153d71627a6dff1c6f21750b3710e83a720c11a2048006e9e1f0c0733c4f3",
+    "bytes": 44451
+   },
+   "exponential-decay.dopri54.csv": {
+    "node_sha256": "7b50d42c02ae3ec93e38ca28ca629c045a6b23ca6e7169f20e3f87bde03511ea",
+    "bytes": 18078
+   },
+   "harmonic-oscillator.rk4.csv": {
+    "node_sha256": "698b3398b918ecbde67f22dc2a9d071d051a2588b33fef2b9f9bc50c45fb830f",
+    "bytes": 134514
+   },
+   "harmonic-oscillator.dopri54.csv": {
+    "node_sha256": "b817a6074bd914c13d3c8f7a08836100e315e50d8050db291b46e2f93b3cb006",
+    "bytes": 27312
+   },
+   "damped-driven-oscillator.rk4.csv": {
+    "node_sha256": "0a7d70e7877af6731de547c87f0748fe07e8bfb409b0ee588c46df00a1cea56f",
+    "bytes": 201693
+   },
+   "damped-driven-oscillator.dopri54.csv": {
+    "node_sha256": "6e968ca9d0b7aea7f06f72d0973eef5d0aab672964a02c13c551e6d4cdd947d4",
+    "bytes": 27339
+   },
+   "lorenz.rk4.csv": {
+    "node_sha256": "7521d4cb0137819b1fac086c9fff2fd5e884090f80768958cf83aa99c43ca292",
+    "bytes": 449574
+   },
+   "lorenz.dopri54.csv": {
+    "node_sha256": "3803f6c18018fa63372102eccc4a278ff87e44edf0201f7eb908c3b799131a74",
+    "bytes": 36442
+   },
+   "function-generation.csv": {
+    "node_sha256": "f9187bddad56dfa65b2d1f026ab57a7ade033b71532a175db0b901f0e246bc48",
+    "bytes": 176677
+   },
+   "prng.u32.txt": {
+    "node_sha256": "affbbeedc965fb25002556b9cc17eb8a33f82ad2c4989613191b0f76cb31c1f6",
+    "bytes": 89268
+   },
+   "prng.normal.txt": {
+    "node_sha256": "d94c320dcec0e2f5aa42387ff8cde3524b45376392d09240fd4242fbf710e8ad",
+    "bytes": 44996
+   }
+  },
+  "browsers": {
+   "chromium": {
+    "ran": true,
+    "version": "153.0.8010.12",
+    "cases": {
+     "exponential-decay.rk4.csv": {
+      "required": true,
+      "sha256": "8bf153d71627a6dff1c6f21750b3710e83a720c11a2048006e9e1f0c0733c4f3",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "exponential-decay.dopri54.csv": {
+      "required": false,
+      "sha256": "7b50d42c02ae3ec93e38ca28ca629c045a6b23ca6e7169f20e3f87bde03511ea",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "harmonic-oscillator.rk4.csv": {
+      "required": true,
+      "sha256": "698b3398b918ecbde67f22dc2a9d071d051a2588b33fef2b9f9bc50c45fb830f",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "harmonic-oscillator.dopri54.csv": {
+      "required": false,
+      "sha256": "b817a6074bd914c13d3c8f7a08836100e315e50d8050db291b46e2f93b3cb006",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "damped-driven-oscillator.rk4.csv": {
+      "required": true,
+      "sha256": "0a7d70e7877af6731de547c87f0748fe07e8bfb409b0ee588c46df00a1cea56f",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "damped-driven-oscillator.dopri54.csv": {
+      "required": false,
+      "sha256": "955be06831c4852c7278e680326b2c89bd67aba54385ef8045a69bf0ee23630b",
+      "identical": false,
+      "max_relative_difference": 3.6342652429942917e-12
+     },
+     "lorenz.rk4.csv": {
+      "required": true,
+      "sha256": "7521d4cb0137819b1fac086c9fff2fd5e884090f80768958cf83aa99c43ca292",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "lorenz.dopri54.csv": {
+      "required": false,
+      "sha256": "3803f6c18018fa63372102eccc4a278ff87e44edf0201f7eb908c3b799131a74",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "function-generation.csv": {
+      "required": false,
+      "sha256": "025ae60161448ca63e5f8e639a2742d37fe43d5a6c75dfac9f034a7911ccd6f9",
+      "identical": false,
+      "max_relative_difference": 2.211658356084202e-16
+     },
+     "prng.u32.txt": {
+      "required": true,
+      "sha256": "affbbeedc965fb25002556b9cc17eb8a33f82ad2c4989613191b0f76cb31c1f6",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "prng.normal.txt": {
+      "required": false,
+      "sha256": "6012c7592eda9fc1fd078c586cefc840e4ca9859a02fd80aa7d8753418496352",
+      "identical": false,
+      "max_relative_difference": 3.064913968462174e-16
+     }
+    },
+    "identical": "5/5",
+    "within_cross_engine_bound": "5/5",
+    "criterion": "byte-identical",
+    "passed": true
+   },
+   "firefox": {
+    "ran": true,
+    "version": "155.0",
+    "cases": {
+     "exponential-decay.rk4.csv": {
+      "required": true,
+      "sha256": "8bf153d71627a6dff1c6f21750b3710e83a720c11a2048006e9e1f0c0733c4f3",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "exponential-decay.dopri54.csv": {
+      "required": false,
+      "sha256": "7b50d42c02ae3ec93e38ca28ca629c045a6b23ca6e7169f20e3f87bde03511ea",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "harmonic-oscillator.rk4.csv": {
+      "required": true,
+      "sha256": "698b3398b918ecbde67f22dc2a9d071d051a2588b33fef2b9f9bc50c45fb830f",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "harmonic-oscillator.dopri54.csv": {
+      "required": false,
+      "sha256": "b817a6074bd914c13d3c8f7a08836100e315e50d8050db291b46e2f93b3cb006",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "damped-driven-oscillator.rk4.csv": {
+      "required": true,
+      "sha256": "0a7d70e7877af6731de547c87f0748fe07e8bfb409b0ee588c46df00a1cea56f",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "damped-driven-oscillator.dopri54.csv": {
+      "required": false,
+      "sha256": "08679399a7940bc09a370be725a4ceb71ccb145c5dfca050b1a34a28288c8c32",
+      "identical": false,
+      "max_relative_difference": 4.54970924181692e-12
+     },
+     "lorenz.rk4.csv": {
+      "required": true,
+      "sha256": "7521d4cb0137819b1fac086c9fff2fd5e884090f80768958cf83aa99c43ca292",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "lorenz.dopri54.csv": {
+      "required": false,
+      "sha256": "3803f6c18018fa63372102eccc4a278ff87e44edf0201f7eb908c3b799131a74",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "function-generation.csv": {
+      "required": false,
+      "sha256": "dbe1482825cb4c2ba2ec974df0c4f8dd75c36ba4541560ac66ca3050333f7b6a",
+      "identical": false,
+      "max_relative_difference": 1.6057910757312605e-16
+     },
+     "prng.u32.txt": {
+      "required": true,
+      "sha256": "affbbeedc965fb25002556b9cc17eb8a33f82ad2c4989613191b0f76cb31c1f6",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "prng.normal.txt": {
+      "required": false,
+      "sha256": "4133fbfa9bd140cf0f3145c759e87c755d321967829e259dd2bd831aeb5ee715",
+      "identical": false,
+      "max_relative_difference": 2.592458779314478e-16
+     }
+    },
+    "identical": "5/5",
+    "within_cross_engine_bound": "5/5",
+    "criterion": "maximum relative difference 1e-12",
+    "passed": true
+   },
+   "webkit": {
+    "ran": true,
+    "version": "26.6",
+    "cases": {
+     "exponential-decay.rk4.csv": {
+      "required": true,
+      "sha256": "8bf153d71627a6dff1c6f21750b3710e83a720c11a2048006e9e1f0c0733c4f3",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "exponential-decay.dopri54.csv": {
+      "required": false,
+      "sha256": "7b50d42c02ae3ec93e38ca28ca629c045a6b23ca6e7169f20e3f87bde03511ea",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "harmonic-oscillator.rk4.csv": {
+      "required": true,
+      "sha256": "698b3398b918ecbde67f22dc2a9d071d051a2588b33fef2b9f9bc50c45fb830f",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "harmonic-oscillator.dopri54.csv": {
+      "required": false,
+      "sha256": "b817a6074bd914c13d3c8f7a08836100e315e50d8050db291b46e2f93b3cb006",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "damped-driven-oscillator.rk4.csv": {
+      "required": true,
+      "sha256": "0a7d70e7877af6731de547c87f0748fe07e8bfb409b0ee588c46df00a1cea56f",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "damped-driven-oscillator.dopri54.csv": {
+      "required": false,
+      "sha256": "47afae0a06793c32336f6fcd056c00f125fcd72e77427e02dc481453133224e6",
+      "identical": false,
+      "max_relative_difference": 1.2224971970805714e-11
+     },
+     "lorenz.rk4.csv": {
+      "required": true,
+      "sha256": "7521d4cb0137819b1fac086c9fff2fd5e884090f80768958cf83aa99c43ca292",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "lorenz.dopri54.csv": {
+      "required": false,
+      "sha256": "3803f6c18018fa63372102eccc4a278ff87e44edf0201f7eb908c3b799131a74",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "function-generation.csv": {
+      "required": false,
+      "sha256": "c8f8fce8e843f40d9a56b297e64413c746facccfb67d8f2acd2fd179e2563b81",
+      "identical": false,
+      "max_relative_difference": 2.211658356084202e-16
+     },
+     "prng.u32.txt": {
+      "required": true,
+      "sha256": "affbbeedc965fb25002556b9cc17eb8a33f82ad2c4989613191b0f76cb31c1f6",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "prng.normal.txt": {
+      "required": false,
+      "sha256": "11029b934b424edbb2433069883040d991f9e5e299145a9eeabe8029972848c7",
+      "identical": false,
+      "max_relative_difference": 3.064913968462174e-16
+     }
+    },
+    "identical": "5/5",
+    "within_cross_engine_bound": "5/5",
+    "criterion": "maximum relative difference 1e-12",
+    "passed": true
+   }
+  },
+  "passed": true
+ },
+ "state": "done",
+ "notes": "log: records/logs/20261104T233538Z_P9.4_parity-container-three-engines.log"
+}

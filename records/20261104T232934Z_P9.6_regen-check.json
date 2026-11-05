@@ -1,0 +1,38 @@
+{
+ "packet": "P9.6",
+ "step": "regen-check",
+ "command": "bash ops/regen_check.sh",
+ "exit_code": 0,
+ "started_utc": "2026-11-04T23:29:34.245Z",
+ "finished_utc": "2026-11-04T23:29:54.919Z",
+ "inputs": {
+  "tools/oracles.py": "a9abb62afae45942b988af1cd304f47272ab206081cf7c90068e2454b22e248b",
+  "tools/prng_vectors.mjs": "210c53d3b9e986fd85c7440f76947ed0734bcc5dc11fe1c7123964a9b869e40a",
+  "tools/ast_dump.mjs": "10c8eac761d74bdfae1f59f37d7e711652e4410eeba670a853b7122aa2f87dfc",
+  "spec/models/balanced-ternary-addition.yaml": "ef4d8c3e18cb193ed2946bd8138c2bf48ab6ee867268afae85a049352f255858",
+  "spec/models/damped-driven-oscillator.yaml": "e2d043765aef9cb3bc732583882951fc5ba157e357b304606fc5db7730674553",
+  "spec/models/exponential-decay.yaml": "7041ef69c99e22564fa6f307104651f0ed81c9bc664588ab16a098f27556a7b9",
+  "spec/models/function-generation.yaml": "1624692a2a0ed7ffd4c3ab1ac43c4265007a458d49a2aff75c07bf1400acc649",
+  "spec/models/harmonic-oscillator.yaml": "3c1578792bf9372866dbe15d605b8ee0f982d1887444f89c42a2f3f5081dd71e",
+  "spec/models/lorenz.yaml": "d602c2b35b2bb7ca7c4b63bd037c4c9e440d829d9f0dc3d5eee7558ee0b1930d"
+ },
+ "outputs": {
+  "vectors/damped-driven-oscillator/damped-driven-oscillator.analytic.vec": "bba698daaed7f266bf8e7bc242989ce9e1e21fd4d3e87c04baf1e29f136c2781",
+  "vectors/exponential-decay/exponential-decay.analytic.vec": "547efa02f62acd892b37ff2fa7ada88956b82450b635d87417b3cf309c8e0e9b",
+  "vectors/function-generation/function-generation.vec": "d8a4747efe3d31e682e5fe6e788180233a5e1db15d642a02b453474db5f47e24",
+  "vectors/harmonic-oscillator/harmonic-oscillator.analytic.vec": "576ea56830f2910eea9af5b026e1792e065dc88179fb4f2bf86caf4f2b0aeba1",
+  "vectors/lorenz/lorenz.stats.json": "1dbd4e6e8acffac9cc8545a761949951e8c586ed40d378bed12ae38ef6a73190",
+  "vectors/lorenz/lorenz.t5.vec": "2e0373b99ea0522c266cdc4155bbdc0c36a6bc6523d668153774a0880fd1eb36",
+  "vectors/prng/splitmix64.vec": "fde93d4636920c6c40d4fa0fe116e64d4cf3ac69511d3b99b8c44fc446b0bfc9",
+  "vectors/prng/xoshiro128starstar.vec": "f0acb632ddc50b1922293520c27278642957acf0ac1ad9181c6a47e472d91ff2",
+  "records/logs/20261104T232934Z_P9.6_regen-check.log": "27411dabf1c3c9a083d055203c54f10d284ac38d426d160166d2ab18864de88e"
+ },
+ "tool_versions": {
+  "node": "v22.23.4",
+  "mpmath": "1.4.1"
+ },
+ "image_digests": {},
+ "results": {},
+ "state": "done",
+ "notes": "log: records/logs/20261104T232934Z_P9.6_regen-check.log"
+}

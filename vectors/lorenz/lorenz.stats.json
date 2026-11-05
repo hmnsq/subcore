@@ -1,0 +1,29 @@
+{
+ "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+ "model": "lorenz",
+ "version": "1.0.0",
+ "model_sha256": "c68f384ea156b69a38d7a78e3574048660e0361a166a8551b82cf5e09bb8f454",
+ "oracle": "independent long run in Python: classical RK4 in binary64, h = 0.001, from the model's initial state",
+ "window": {
+  "from": 50.0,
+  "to": 500.0,
+  "sample_every": 0.01
+ },
+ "samples": 45001,
+ "statistics": {
+  "x": {
+   "mean": 0.25243150604201475,
+   "std": 7.932174910018366
+  },
+  "y": {
+   "mean": 0.2546113624135552,
+   "std": 8.991942170417937
+  },
+  "z": {
+   "mean": 23.613225819547246,
+   "std": 8.558367170051062
+  }
+ },
+ "comparison": "Test Plan T-36: means and standard deviations within 2 per cent; for a mean, 2 per cent of the variable's standard deviation, since the means of x and y are near zero by the system's symmetry",
+ "generator": "subcore tools/oracles.py 1.0.0"
+}

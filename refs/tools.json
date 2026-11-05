@@ -1,0 +1,13 @@
+{
+ "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+ "image": "native",
+ "image_id": "none",
+ "image_size_bytes": null,
+ "tools": {
+  "openmodelica": null,
+  "ngspice": "** ngspice-42 : Circuit level simulation program",
+  "qiskit-aer": "qiskit 2.6.1 qiskit-aer 0.18.2 qutip 5.3.1",
+  "qutip": "qiskit 2.6.1 qiskit-aer 0.18.2 qutip 5.3.1",
+  "chrono": "pychrono 9.0.1 py313h49e0b1c_4 (conda-forge)"
+ }
+}

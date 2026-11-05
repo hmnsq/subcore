@@ -1,0 +1,7 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+representation: {kind: representation, id: balanced_ternary, version: 0.3.0, repository: hmnsq/repsynth}
+substrate: {id: mechanical, version: 0.1.0}
+mechanism: "counter wheels with three detent positions for the trits -1, 0 and +1, with a carry of -1, 0 or +1 on wrap (Guidelines 8.3)"
+capability_class: not_established
+rung: SPEC
+evidence: {state: not_established, reason: "assigned at P10.3 and P12.1 from a run record; nothing has run"}

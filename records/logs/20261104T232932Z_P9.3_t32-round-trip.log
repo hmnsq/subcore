@@ -1,0 +1,61 @@
+$ node --test tests/expr.test.mjs
+TAP version 13
+# Subtest: precedence and associativity
+ok 1 - precedence and associativity
+  ---
+  duration_ms: 3.582737
+  type: 'test'
+  ...
+# Subtest: functions
+ok 2 - functions
+  ---
+  duration_ms: 0.360591
+  type: 'test'
+  ...
+# Subtest: refusals carry a code and a position
+ok 3 - refusals carry a code and a position
+  ---
+  duration_ms: 0.850324
+  type: 'test'
+  ...
+# Subtest: no eval, no new Function, no Math.random in the core sources (WEB-04)
+ok 4 - no eval, no new Function, no Math.random in the core sources (WEB-04)
+  ---
+  duration_ms: 1.567989
+  type: 'test'
+  ...
+# Subtest: T-32: every CMS-03 expression re-parses from its Modelica and SPICE forms to the same tree
+ok 5 - T-32: every CMS-03 expression re-parses from its Modelica and SPICE forms to the same tree
+  ---
+  duration_ms: 20.944021
+  type: 'test'
+  ...
+# Subtest: T-32: 3000 seeded random trees round-trip through every form
+ok 6 - T-32: 3000 seeded random trees round-trip through every form
+  ---
+  duration_ms: 289.423673
+  type: 'test'
+  ...
+# Subtest: generated forms evaluate to the same value as the tree
+ok 7 - generated forms evaluate to the same value as the tree
+  ---
+  duration_ms: 17.057481
+  type: 'test'
+  ...
+# Subtest: T-32: whole generated Modelica models and SPICE netlists read back to the model trees
+ok 8 - T-32: whole generated Modelica models and SPICE netlists read back to the model trees
+  ---
+  duration_ms: 63.244303
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 519.471726
+
+[exit 0]

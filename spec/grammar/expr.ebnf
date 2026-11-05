@@ -1,0 +1,45 @@
+(* © 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI.
+   SPDX-License-Identifier: CC0-1.0
+
+   The restricted expression grammar of hmnsq/subcore (CMS-02), version 1.0.0, in ISO/IEC 14977 EBNF.
+   One parser implements it: docs/src/expr.js (recursive descent, one function per rule below).
+   The same tree is generated as Modelica and as ngspice behavioural (B-source) expressions, and both
+   forms are read back to the same tree (T-32).
+
+   Precedence, lowest first: + and - (left associative); * and / (left associative); unary minus;
+   ^ (right associative; its exponent may carry a unary minus, so 2^-1 is 2^(-1)).
+   -a*b is (-a)*b and -a^2 is -(a^2).
+   White space (space, tab, line feed, carriage return) may separate any two tokens. *)
+
+expression  = term , { ( "+" | "-" ) , term } ;
+term        = unary , { ( "*" | "/" ) , unary } ;
+unary       = "-" , unary | power ;
+power       = primary , [ "^" , unary ] ;
+primary     = number | call | identifier | "(" , expression , ")" ;
+call        = function , "(" , expression , [ "," , expression ] , ")" ;
+               (* min and max take two arguments; every other function takes one *)
+
+function    = "sin" | "cos" | "tan" | "asin" | "acos" | "atan" | "sinh" | "cosh" | "tanh"
+            | "exp" | "log" | "log10" | "sqrt" | "abs" | "sign" | "min" | "max" ;
+               (* log is the natural logarithm *)
+
+identifier  = letter , { letter | digit } ;
+               (* not a function name and not a reserved word: time, der, ln, sgn and the reserved words of
+                  Modelica 3 (docs/src/expr.js, RESERVED); t names the independent variable. Names in one model
+                  differ by more than letter case, because SPICE ignores case. *)
+number      = ( digits , [ "." , [ digits ] ] | "." , digits ) , [ ( "e" | "E" ) , [ "+" | "-" ] , digits ] ;
+               (* a non-negative finite literal; a sign is the unary minus *)
+digits      = digit , { digit } ;
+letter      = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q"
+            | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h"
+            | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y"
+            | "z" | "_" ;
+digit       = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+
+(* Generated forms, read back by parseModelica and parseSpice in docs/src/expr.js:
+   Modelica: t is written time; names and functions as above. Every compound operand of ^ and every negation
+   used as an operand is parenthesised (Modelica forbids a^b^c and allows a leading minus only at the start
+   of an expression).
+   SPICE (ngspice B-source): t is written time; a state or input x is written v(x); a parameter p is written {p};
+   log is written ln and sign sgn. ngspice reads 2^3^2 as (2^3)^2 = 64 (checked with ngspice 42), so every
+   compound operand of ^ is parenthesised. *)

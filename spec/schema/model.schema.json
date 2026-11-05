@@ -1,0 +1,129 @@
+{
+  "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hmnsq.github.io/subcore/spec/schema/model.schema.json",
+  "title": "Computational model specification (CMS-01, MRD section 9.10)",
+  "description": "A computation without reference to any substrate: continuous models as equations in the restricted expression grammar (spec/grammar/expr.ebnf), function-generation models as expressions of one variable, discrete models by their reference function (SPC-03), quantum models as OpenQASM 3 circuits. Expressions are checked by the core's parser (tools/validate.py runs it).",
+  "type": "object",
+  "required": ["identity", "kind", "semantics", "oracle", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "_notice": {"type": "string"},
+    "identity": {
+      "type": "object", "required": ["id", "version", "title"], "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "title": {"type": "string", "minLength": 1}
+      }
+    },
+    "kind": {"enum": ["continuous", "function", "discrete", "quantum"]},
+    "semantics": {"type": "string", "minLength": 1},
+    "independent": {
+      "type": "object", "required": ["name", "unit"], "additionalProperties": false,
+      "properties": {"name": {"$ref": "#/$defs/name"}, "unit": {"$ref": "#/$defs/unit"}}
+    },
+    "domain": {
+      "type": "object", "required": ["from", "to", "points"], "additionalProperties": false,
+      "properties": {"from": {"type": "number"}, "to": {"type": "number"}, "points": {"type": "integer", "minimum": 2}}
+    },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["name", "value", "unit"], "additionalProperties": false,
+        "properties": {
+          "name": {"$ref": "#/$defs/name"}, "value": {"type": "number"}, "unit": {"$ref": "#/$defs/unit"},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "states": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["name", "unit", "initial"], "additionalProperties": false,
+        "properties": {
+          "name": {"$ref": "#/$defs/name"}, "unit": {"$ref": "#/$defs/unit"}, "initial": {"type": "number"},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["name", "unit", "expression"], "additionalProperties": false,
+        "properties": {"name": {"$ref": "#/$defs/name"}, "unit": {"$ref": "#/$defs/unit"}, "expression": {"$ref": "#/$defs/expression"}}
+      }
+    },
+    "equations": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["der", "expression"], "additionalProperties": false,
+        "properties": {"der": {"$ref": "#/$defs/name"}, "expression": {"$ref": "#/$defs/expression"}}
+      }
+    },
+    "outputs": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["name", "unit", "expression"], "additionalProperties": false,
+        "properties": {"name": {"$ref": "#/$defs/name"}, "unit": {"$ref": "#/$defs/unit"}, "expression": {"$ref": "#/$defs/expression"}}
+      }
+    },
+    "horizon": {
+      "type": "object", "required": ["t0", "t1", "unit"], "additionalProperties": false,
+      "properties": {"t0": {"type": "number"}, "t1": {"type": "number"}, "unit": {"$ref": "#/$defs/unit"}}
+    },
+    "solver_defaults": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"rk4_step": {"type": "number", "exclusiveMinimum": 0}, "rtol": {"type": "number", "exclusiveMinimum": 0}, "atol": {"type": "number", "minimum": 0}}
+    },
+    "reference": {
+      "description": "A discrete model's reference function (SPC-03)",
+      "type": "object", "required": ["repository", "spec_id", "spec_version", "op", "symbols", "header"], "additionalProperties": false,
+      "properties": {
+        "repository": {"type": "string"}, "spec_id": {"type": "string"}, "spec_version": {"type": "string"},
+        "spec_path": {"type": "string"}, "op": {"type": "string"},
+        "symbols": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^[a-z_][a-z0-9_]*$"}},
+        "header": {"type": "string"}, "vectors": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "circuit": {"description": "A quantum model's OpenQASM 3 source path", "type": "string"},
+    "oracle": {
+      "type": "object", "required": ["kind", "error_bound"], "additionalProperties": false,
+      "properties": {
+        "kind": {"enum": ["analytic", "mpmath", "reference_function"]},
+        "definitions": {
+          "type": "array",
+          "items": {"type": "object", "required": ["name", "expression"], "additionalProperties": false,
+                    "properties": {"name": {"$ref": "#/$defs/name"}, "expression": {"$ref": "#/$defs/expression"}}}
+        },
+        "solution": {
+          "type": "array",
+          "items": {"type": "object", "required": ["name", "expression"], "additionalProperties": false,
+                    "properties": {"name": {"$ref": "#/$defs/name"}, "expression": {"$ref": "#/$defs/expression"}}}
+        },
+        "vectors": {"type": "string"},
+        "statistics": {"type": "string"},
+        "error_bound": {"type": "string", "minLength": 1}
+      },
+      "allOf": [{"if": {"properties": {"kind": {"const": "analytic"}}}, "then": {"required": ["solution"]}},
+                {"if": {"properties": {"kind": {"const": "mpmath"}}}, "then": {"required": ["vectors"]}}]
+    },
+    "provenance": {
+      "type": "object", "required": ["source", "evidence"], "additionalProperties": false,
+      "properties": {"source": {"type": "string"}, "evidence": {"enum": ["measured", "sourced", "assumed", "not_established"]}}
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"kind": {"const": "continuous"}}},
+     "then": {"required": ["independent", "states", "equations", "outputs", "horizon"]}},
+    {"if": {"properties": {"kind": {"const": "function"}}},
+     "then": {"required": ["independent", "domain", "outputs"]}},
+    {"if": {"properties": {"kind": {"const": "discrete"}}}, "then": {"required": ["reference"]}},
+    {"if": {"properties": {"kind": {"const": "quantum"}}}, "then": {"required": ["circuit"]}}
+  ],
+  "$defs": {
+    "name": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+    "unit": {"type": "string", "pattern": "^[A-Za-z0-9.()/%\\[\\]{}+_-]+$"},
+    "expression": {"type": "string", "minLength": 1, "description": "In the restricted expression grammar (spec/grammar/expr.ebnf)"}
+  }
+}

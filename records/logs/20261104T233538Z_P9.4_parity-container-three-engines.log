@@ -1,0 +1,41 @@
+$ node tools/parity.mjs --out reports/parity/S1-container.json
+node v24.20.0: 11 cases
+chromium 153.0.8010.12: required cases 5/5 byte-identical, 5/5 within 1e-12: pass
+  required  exponential-decay.rk4.csv: byte-identical
+  reported  exponential-decay.dopri54.csv: byte-identical
+  required  harmonic-oscillator.rk4.csv: byte-identical
+  reported  harmonic-oscillator.dopri54.csv: byte-identical
+  required  damped-driven-oscillator.rk4.csv: byte-identical
+  reported  damped-driven-oscillator.dopri54.csv: differs, max relative 3.6342652429942917e-12
+  required  lorenz.rk4.csv: byte-identical
+  reported  lorenz.dopri54.csv: byte-identical
+  reported  function-generation.csv: differs, max relative 2.211658356084202e-16
+  required  prng.u32.txt: byte-identical
+  reported  prng.normal.txt: differs, max relative 3.064913968462174e-16
+firefox 155.0: required cases 5/5 byte-identical, 5/5 within 1e-12: pass
+  required  exponential-decay.rk4.csv: byte-identical
+  reported  exponential-decay.dopri54.csv: byte-identical
+  required  harmonic-oscillator.rk4.csv: byte-identical
+  reported  harmonic-oscillator.dopri54.csv: byte-identical
+  required  damped-driven-oscillator.rk4.csv: byte-identical
+  reported  damped-driven-oscillator.dopri54.csv: differs, max relative 4.54970924181692e-12
+  required  lorenz.rk4.csv: byte-identical
+  reported  lorenz.dopri54.csv: byte-identical
+  reported  function-generation.csv: differs, max relative 1.6057910757312605e-16
+  required  prng.u32.txt: byte-identical
+  reported  prng.normal.txt: differs, max relative 2.592458779314478e-16
+webkit 26.6: required cases 5/5 byte-identical, 5/5 within 1e-12: pass
+  required  exponential-decay.rk4.csv: byte-identical
+  reported  exponential-decay.dopri54.csv: byte-identical
+  required  harmonic-oscillator.rk4.csv: byte-identical
+  reported  harmonic-oscillator.dopri54.csv: byte-identical
+  required  damped-driven-oscillator.rk4.csv: byte-identical
+  reported  damped-driven-oscillator.dopri54.csv: differs, max relative 1.2224971970805714e-11
+  required  lorenz.rk4.csv: byte-identical
+  reported  lorenz.dopri54.csv: byte-identical
+  reported  function-generation.csv: differs, max relative 2.211658356084202e-16
+  required  prng.u32.txt: byte-identical
+  reported  prng.normal.txt: differs, max relative 3.064913968462174e-16
+parity: pass; report reports/parity/S1-container.json
+
+[exit 0]

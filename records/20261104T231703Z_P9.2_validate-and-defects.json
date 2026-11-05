@@ -1,0 +1,42 @@
+{
+ "packet": "P9.2",
+ "step": "validate-and-defects",
+ "command": "python3 tools/validate.py --defects --json reports/validate/P9.2.json",
+ "exit_code": 0,
+ "started_utc": "2026-11-04T23:17:03.835Z",
+ "finished_utc": "2026-11-04T23:17:06.752Z",
+ "inputs": {
+  "spec/schema/model.schema.json": "eb567c9bf060cc01e44632dac178933a762670763d2254258434a1a16437f514",
+  "spec/schema/realisation.schema.json": "adf35aae4877e8a4bec0f259f36dfaa45e6d5e392f9c1a9b3d2cda5291f50c8e",
+  "spec/schema/substrate.schema.json": "233be76e7e0120253b60818b7c051b2271c01e0e144272376292392d47eb85f8",
+  "spec/substrates/analogue-electronic.yaml": "c3b521c473c1600b3912c41b77d3920e1d5620fc416eafd6326a03c8c830a58b",
+  "spec/substrates/digital-electronic.yaml": "d61ebce4f2a58111221bd94b1054fd75f112956660b9ff3311660c90cec287ba",
+  "spec/substrates/mechanical.yaml": "79b4cbfbba1262c8eb009acbc6bc7f3e1be4aa6c6eb999fb512b998e76a130bd",
+  "spec/substrates/optical.yaml": "de14e0a845e65ba1713b71cd2618348371e50f40f0ffdfdd722f326ce1ec6e56",
+  "spec/substrates/quantum.yaml": "23b85091981b5a4ee1b87b7b4163949d1bb2eef2c1e8edf24c8a5a9da3c15bf7",
+  "spec/realisations/balanced-ternary.mechanical.yaml": "01294d0b0d322b895ea88d255cbaa414f5d3b0b623f10c94502ad45d87c60613",
+  "spec/realisations/harmonic-oscillator.analogue-electronic.yaml": "afcea2fa40fb6e17f47ea9d71e8d0d491298b4cf4d784a0d4a93405159126e73",
+  "spec/models/balanced-ternary-addition.yaml": "ef4d8c3e18cb193ed2946bd8138c2bf48ab6ee867268afae85a049352f255858",
+  "spec/models/damped-driven-oscillator.yaml": "e2d043765aef9cb3bc732583882951fc5ba157e357b304606fc5db7730674553",
+  "spec/models/exponential-decay.yaml": "7041ef69c99e22564fa6f307104651f0ed81c9bc664588ab16a098f27556a7b9",
+  "spec/models/function-generation.yaml": "1624692a2a0ed7ffd4c3ab1ac43c4265007a458d49a2aff75c07bf1400acc649",
+  "spec/models/harmonic-oscillator.yaml": "3c1578792bf9372866dbe15d605b8ee0f982d1887444f89c42a2f3f5081dd71e",
+  "spec/models/lorenz.yaml": "d602c2b35b2bb7ca7c4b63bd037c4c9e440d829d9f0dc3d5eee7558ee0b1930d",
+  "tools/validate.py": "7f0224c2a69828127682f39978d07ab2b285552618e77ec3423e0e0ccda322f4",
+  "tools/speccheck.mjs": "5c06ef20a05f9db725c332ff81becdbfba4508048f531d9295b83ee5e8b8d1ea"
+ },
+ "outputs": {
+  "reports/validate/P9.2.json": "757f17d4cbb5d1211599d248b45ba27c626afbac5cf35a720c73cd0b409a9ac6",
+  "records/logs/20261104T231703Z_P9.2_validate-and-defects.log": "8e9c2a35fc6cdbae4db0f0dde29a877386a364d34a7f167fc37ddb4945f54428"
+ },
+ "tool_versions": {
+  "node": "v22.23.4",
+  "python": "3.13.18",
+  "jsonschema": "4.26.0",
+  "pyyaml": "6.0.3"
+ },
+ "image_digests": {},
+ "results": {},
+ "state": "done",
+ "notes": "log: records/logs/20261104T231703Z_P9.2_validate-and-defects.log"
+}

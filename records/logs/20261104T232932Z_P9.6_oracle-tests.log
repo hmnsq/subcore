@@ -1,0 +1,89 @@
+$ node --test tests/oracles.test.mjs
+TAP version 13
+# Subtest: exponential-decay: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+ok 1 - exponential-decay: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+  ---
+  duration_ms: 13.203498
+  type: 'test'
+  ...
+# Subtest: T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors
+ok 2 - T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors
+  ---
+  duration_ms: 26.656923
+  type: 'test'
+  ...
+# Subtest: harmonic-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+ok 3 - harmonic-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+  ---
+  duration_ms: 7.03246
+  type: 'test'
+  ...
+# Subtest: T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors
+ok 4 - T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors
+  ---
+  duration_ms: 37.691963
+  type: 'test'
+  ...
+# Subtest: damped-driven-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+ok 5 - damped-driven-oscillator: vectors are current, and the core's binary64 analytic solution agrees with mpmath
+  ---
+  duration_ms: 21.45785
+  type: 'test'
+  ...
+# Subtest: T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors
+ok 6 - T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors
+  ---
+  duration_ms: 19.749505
+  type: 'test'
+  ...
+# Subtest: function generation: the core equals mpmath within 4 machine epsilons times max(1, |y|) (binary64 rounding of the arguments, such as pi*x and 1+x, is amplified by conditioning near the zeros of sin)
+ok 7 - function generation: the core equals mpmath within 4 machine epsilons times max(1, |y|) (binary64 rounding of the arguments, such as pi*x and 1+x, is amplified by conditioning near the zeros of sin)
+  ---
+  duration_ms: 13.675813
+  type: 'test'
+  ...
+# Subtest: T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath
+ok 8 - T-35 Lorenz to t = 5: RK4 (h = 0.001) and dopri54 (tolerance 1e-12) within 1e-6 of mpmath
+  ---
+  duration_ms: 29.462678
+  type: 'test'
+  ...
+# Subtest: T-36 Lorenz statistics, t 50 to 500: standard deviations and the mean of z within 2 per cent
+ok 9 - T-36 Lorenz statistics, t 50 to 500: standard deviations and the mean of z within 2 per cent
+  ---
+  duration_ms: 429.645152
+  type: 'test'
+  ...
+# Subtest: T-36 Lorenz statistics: means of x and y within 2 per cent of the standard deviation
+not ok 10 - T-36 Lorenz statistics: means of x and y within 2 per cent of the standard deviation # TODO fails: the means of x and y are zero by symmetry, and over t 50 to 500 two different trajectories differ by about 3.4 per cent of the standard deviation; question for the author in reports/completion/P9.6.md
+  ---
+  duration_ms: 407.059926
+  type: 'test'
+  location: '/home/user/build/subcore/tests/oracles.test.mjs:90:1'
+  failureType: 'testCodeFailure'
+  error: 'mean x: -0.013169735246764083 vs 0.25243150604201475, 3.35 per cent of the standard deviation'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/build/subcore/tests/oracles.test.mjs:96:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 1
+# duration_ms 1123.66104
+
+[exit 0]

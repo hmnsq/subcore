@@ -1,0 +1,61 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: digital-electronic
+  version: 0.1.0
+  title: Digital electronic logic
+  description: Synchronous CMOS logic and processors running instruction sequences; the harness's lanes.
+medium: digital_electronic
+state_space:
+  kind: discrete
+  description: Register and memory contents of a word width, with a clocked program state.
+  variables:
+    - {name: register_word, description: contents of one register, unit: bit, range: {min: {value: 0.0, unit: bit}, max: {parameter: word_width, unit: bit}}}
+    - {name: logic_level, description: a binary logic level, unit: "1", values: [0, 1]}
+state_transitions:
+  - {name: clock_edge, mechanism: registers latch their inputs on a clock edge}
+  - {name: instruction_retire, mechanism: a processor retires an instruction}
+operations:
+  - {name: integer_add, mechanism: adder in an arithmetic logic unit, description: "two's complement addition, wrapping"}
+  - {name: integer_multiply, mechanism: multiplier unit, description: low word of the product}
+  - {name: fixed_point_step, mechanism: an instruction sequence, description: one step of a fixed-point integration loop}
+  - {name: reference_function, mechanism: a compiled reference function or a generated hardware unit, description: any operation defined by an SPC-03 reference function}
+observability:
+  - {name: register_read, method: debugger or memory-mapped read, resolution: {value: 1.0, unit: bit}, disturbance: none in simulation}
+controllability:
+  - {name: program_load, mechanism: loading an instruction sequence or a bitstream}
+  - {name: reset, mechanism: reset line}
+temporal_behaviour:
+  latency: {not_established: depends on the target; emulator figures are not hardware speed (Guidelines 7), unit: s}
+  bandwidth: {not_established: depends on the clock of the target, unit: Hz}
+  settling: {not_established: one clock period of the target, unit: s}
+  time_scaling: Discrete steps; a continuous model's time step is a parameter of the generated program.
+noise_and_uncertainty:
+  - {name: none_in_simulation, model: deterministic; soft errors are outside the first build, parameters: [soft_error_rate]}
+resource_constraints:
+  - {name: word_width_limit, limit: {parameter: word_width, unit: bit}, kind: maximum}
+interface:
+  - {name: gpio, direction: both, to: [mechanical, analogue_electronic, human], method: general-purpose input and output}
+  - {name: converters, direction: both, to: [analogue_electronic], method: ADC and DAC}
+  - {name: control_link, direction: both, to: [quantum, optical], method: control electronics of the other substrate}
+units:
+  system: UCUM
+  codes:
+    - {code: bit, meaning: widths}
+    - {code: By, meaning: memory sizes}
+    - {code: Hz, meaning: clock frequency}
+    - {code: s, meaning: time}
+    - {code: "1", meaning: logic levels and counts}
+parameters:
+  - {name: word_width, value: 64.0, unit: bit, evidence: {state: sourced, citation: "RV64 base profile (MRD section 9.5)"}}
+  - {name: clock_frequency, unit: Hz, evidence: {state: not_established, reason: measured from Yosys and nextpnr per design (Guidelines 7)}}
+  - {name: soft_error_rate, unit: s-1, evidence: {state: not_established, reason: outside the first build}}
+capabilities:
+  - {model_operation: add_discrete, realised_by: [integer_add, reference_function], evidence: {state: sourced, citation: MRD sections 9.4 and 9.5}}
+  - {model_operation: integrate, realised_by: [fixed_point_step], evidence: {state: sourced, citation: "MRD section 9.10, digital electronic row"}}
+realisation_models:
+  executable: {description: reference functions and instruction semantics, where: hmnsq/repsynth, state: exists, references: [QEMU, Verilator, GHDL]}
+  physical: {description: RTL and physical design inputs, where: hmnsq/repsynth hardware lane, state: planned, references: [Yosys, nextpnr]}
+provenance:
+  sources:
+    - {what: "MRD sections 9.4, 9.5, 9.9 and 9.11"}
+  evidence: {state: sourced, citation: "package repsynth 0.3.0, document 01"}

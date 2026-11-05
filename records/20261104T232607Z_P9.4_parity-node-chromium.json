@@ -1,0 +1,181 @@
+{
+ "packet": "P9.4",
+ "step": "parity-node-chromium",
+ "command": "node tools/parity.mjs",
+ "exit_code": 0,
+ "started_utc": "2026-11-04T23:26:07.791Z",
+ "finished_utc": "2026-11-04T23:26:09.789Z",
+ "inputs": {
+  "docs/src/cli.js": "c4988b823278f12ccf3125f45ddc843453fe64dd473f58f5a85473534ddf5cbf",
+  "docs/src/errors.js": "9fad1ccc10ffdf974a88b85d10c083483cb2bec5c055c40b947f56a31ccd801a",
+  "docs/src/events.js": "49b188ff1856a2ffff3899b72763da02119943b560d91907f2e1520470ec7fc3",
+  "docs/src/export.js": "ba60410cccbb45a546d1bbbedbaf2dd8bd47c10272c11711f0dc3343d6c46818",
+  "docs/src/expr.js": "c87788e1d639944701e516d6181009a9d7d2f4b22292d9e4b317e0fdeafa02ec",
+  "docs/src/hash.js": "97285f9c92397ded534a897454e41af8761f384c3391d596d4dc5cad3853b27d",
+  "docs/src/prng.js": "7f9c0dc71d7037ca624c5faf9189d3c48d15cf112d74b94beb1ef02abe52912f",
+  "docs/src/solve.js": "50c7f7e0536e82cd8cd9b981ac45cff5eb3c1cd045ef975dd5b88765c762b7d9",
+  "docs/src/spec.js": "77480a2cdf07b18468a5effbc69043eeb8ec3d94b6d9d40068f76aea4ed5d3f0",
+  "docs/src/trace.js": "8ae30c4e647976553b8f40cc483a65f21d999411e46071752a97dfed97066601",
+  "docs/src/units.js": "a6630d7e879da61c1d90b114e5afa3317b9f87dbc6838f2fbdba052c0b414a6d",
+  "docs/src/vectors.js": "73a747afd719494b90b1560178702eab5a3dffa0b87e835283d072a7b66ab450",
+  "tests/parity_cases.mjs": "79189913ad727ee47b7686618c88d83e793aa0b8a90877ac73ecee4b2a130a46",
+  "tests/parity.html": "15a3478d61ba35d44a47eb31e3d0d7be036c74cd8660bf55cc6f83f9d6be1438",
+  "tools/parity.mjs": "19ee1387455544eea2686fb052b4358323a661a7a21a298fb896de62649f3c32",
+  "spec/models/balanced-ternary-addition.yaml": "ef4d8c3e18cb193ed2946bd8138c2bf48ab6ee867268afae85a049352f255858",
+  "spec/models/damped-driven-oscillator.yaml": "e2d043765aef9cb3bc732583882951fc5ba157e357b304606fc5db7730674553",
+  "spec/models/exponential-decay.yaml": "7041ef69c99e22564fa6f307104651f0ed81c9bc664588ab16a098f27556a7b9",
+  "spec/models/function-generation.yaml": "1624692a2a0ed7ffd4c3ab1ac43c4265007a458d49a2aff75c07bf1400acc649",
+  "spec/models/harmonic-oscillator.yaml": "3c1578792bf9372866dbe15d605b8ee0f982d1887444f89c42a2f3f5081dd71e",
+  "spec/models/lorenz.yaml": "d602c2b35b2bb7ca7c4b63bd037c4c9e440d829d9f0dc3d5eee7558ee0b1930d"
+ },
+ "outputs": {
+  "reports/parity/S1.json": "cf793c4b2cc93880cf0ec8f25130e682500a7ba70e95229010dc673365c9a761",
+  "records/logs/20261104T232607Z_P9.4_parity-node-chromium.log": "09713be96f76c010df7a644f627544040507c3da1c725e24d0bf10fc0d101ab3"
+ },
+ "tool_versions": {
+  "node": "v22.23.4",
+  "playwright": "1.63.0",
+  "chromium": "153.0.8010.12"
+ },
+ "image_digests": {},
+ "results": {
+  "_notice": "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0",
+  "node": "v22.23.4",
+  "playwright": "1.63.0",
+  "cases": {
+   "exponential-decay.rk4.csv": {
+    "node_sha256": "8bf153d71627a6dff1c6f21750b3710e83a720c11a2048006e9e1f0c0733c4f3",
+    "bytes": 44451
+   },
+   "exponential-decay.dopri54.csv": {
+    "node_sha256": "7b50d42c02ae3ec93e38ca28ca629c045a6b23ca6e7169f20e3f87bde03511ea",
+    "bytes": 18078
+   },
+   "harmonic-oscillator.rk4.csv": {
+    "node_sha256": "698b3398b918ecbde67f22dc2a9d071d051a2588b33fef2b9f9bc50c45fb830f",
+    "bytes": 134514
+   },
+   "harmonic-oscillator.dopri54.csv": {
+    "node_sha256": "511185ec8483e936845c5a2ba33e3de3a2a4156d11b43d6ee046b02cc80a6f49",
+    "bytes": 27312
+   },
+   "damped-driven-oscillator.rk4.csv": {
+    "node_sha256": "0a7d70e7877af6731de547c87f0748fe07e8bfb409b0ee588c46df00a1cea56f",
+    "bytes": 201693
+   },
+   "damped-driven-oscillator.dopri54.csv": {
+    "node_sha256": "27342d80b48318d4a51c209cd3cbc4f6a488ed057518fc09d363e100c7a01f37",
+    "bytes": 27339
+   },
+   "lorenz.rk4.csv": {
+    "node_sha256": "7521d4cb0137819b1fac086c9fff2fd5e884090f80768958cf83aa99c43ca292",
+    "bytes": 449574
+   },
+   "lorenz.dopri54.csv": {
+    "node_sha256": "ea7b6c3844d994f9e4fd717e4855d339e1eca33aaeb23872d4bf67d35d42f365",
+    "bytes": 36442
+   },
+   "function-generation.csv": {
+    "node_sha256": "f9187bddad56dfa65b2d1f026ab57a7ade033b71532a175db0b901f0e246bc48",
+    "bytes": 176677
+   },
+   "prng.u32.txt": {
+    "node_sha256": "affbbeedc965fb25002556b9cc17eb8a33f82ad2c4989613191b0f76cb31c1f6",
+    "bytes": 89268
+   },
+   "prng.normal.txt": {
+    "node_sha256": "d94c320dcec0e2f5aa42387ff8cde3524b45376392d09240fd4242fbf710e8ad",
+    "bytes": 44996
+   }
+  },
+  "browsers": {
+   "chromium": {
+    "ran": true,
+    "version": "153.0.8010.12",
+    "cases": {
+     "exponential-decay.rk4.csv": {
+      "required": true,
+      "sha256": "8bf153d71627a6dff1c6f21750b3710e83a720c11a2048006e9e1f0c0733c4f3",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "exponential-decay.dopri54.csv": {
+      "required": false,
+      "sha256": "7b50d42c02ae3ec93e38ca28ca629c045a6b23ca6e7169f20e3f87bde03511ea",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "harmonic-oscillator.rk4.csv": {
+      "required": true,
+      "sha256": "698b3398b918ecbde67f22dc2a9d071d051a2588b33fef2b9f9bc50c45fb830f",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "harmonic-oscillator.dopri54.csv": {
+      "required": false,
+      "sha256": "b817a6074bd914c13d3c8f7a08836100e315e50d8050db291b46e2f93b3cb006",
+      "identical": false,
+      "max_relative_difference": 2.7875184379459454e-12
+     },
+     "damped-driven-oscillator.rk4.csv": {
+      "required": true,
+      "sha256": "0a7d70e7877af6731de547c87f0748fe07e8bfb409b0ee588c46df00a1cea56f",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "damped-driven-oscillator.dopri54.csv": {
+      "required": false,
+      "sha256": "955be06831c4852c7278e680326b2c89bd67aba54385ef8045a69bf0ee23630b",
+      "identical": false,
+      "max_relative_difference": 9.467171820907255e-13
+     },
+     "lorenz.rk4.csv": {
+      "required": true,
+      "sha256": "7521d4cb0137819b1fac086c9fff2fd5e884090f80768958cf83aa99c43ca292",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "lorenz.dopri54.csv": {
+      "required": false,
+      "sha256": "3803f6c18018fa63372102eccc4a278ff87e44edf0201f7eb908c3b799131a74",
+      "identical": false,
+      "max_relative_difference": 2.050478825233496e-12
+     },
+     "function-generation.csv": {
+      "required": false,
+      "sha256": "025ae60161448ca63e5f8e639a2742d37fe43d5a6c75dfac9f034a7911ccd6f9",
+      "identical": false,
+      "max_relative_difference": 2.211658356084202e-16
+     },
+     "prng.u32.txt": {
+      "required": true,
+      "sha256": "affbbeedc965fb25002556b9cc17eb8a33f82ad2c4989613191b0f76cb31c1f6",
+      "identical": true,
+      "max_relative_difference": 0
+     },
+     "prng.normal.txt": {
+      "required": false,
+      "sha256": "6012c7592eda9fc1fd078c586cefc840e4ca9859a02fd80aa7d8753418496352",
+      "identical": false,
+      "max_relative_difference": 3.064913968462174e-16
+     }
+    },
+    "identical": "5/5",
+    "within_cross_engine_bound": "5/5",
+    "criterion": "byte-identical",
+    "passed": true
+   },
+   "firefox": {
+    "ran": false,
+    "not_run": "browserType.launch: Executable doesn't exist at /opt/pw-browsers/firefox-1543/firefox/firefox"
+   },
+   "webkit": {
+    "ran": false,
+    "not_run": "browserType.launch: Executable doesn't exist at /opt/pw-browsers/webkit-2359/pw_run.sh"
+   }
+  },
+  "passed": true
+ },
+ "state": "done",
+ "notes": "log: records/logs/20261104T232607Z_P9.4_parity-node-chromium.log"
+}

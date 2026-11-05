@@ -1,0 +1,84 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: analogue-electronic
+  version: 0.1.0
+  title: Analogue electronic computer
+  description: Operational-amplifier computing elements patched into an ODE system (Guidelines 9.1).
+medium: analogue_electronic
+state_space:
+  kind: continuous
+  description: Integrator capacitor voltages, normalised so the machine unit is 1 and shown as plus or minus 10 V (RD11).
+  variables:
+    - {name: integrator_output, description: an integrator's output in machine units, unit: "1",
+       range: {min: {value: -1.0, unit: "1"}, max: {value: 1.0, unit: "1"}}}
+    - {name: node_voltage, description: a node voltage of the realised circuit, unit: V,
+       range: {min: {value: -10.0, unit: V}, max: {parameter: machine_unit_voltage, unit: V}}}
+state_transitions:
+  - {name: capacitor_charge, mechanism: input currents charge an integrator's feedback capacitor}
+  - {name: mode_change, mechanism: "relays or analogue switches select initial condition, operate or hold"}
+operations:
+  - {name: integrator, mechanism: op-amp with capacitive feedback and one input resistor per weight, description: "dv/dt = -sum(w_i u_i)"}
+  - {name: summer, mechanism: op-amp with resistive feedback, description: "v = -sum(w_i u_i)"}
+  - {name: inverter, mechanism: summer with one unit-weight input, description: "v = -u", relation: "-u"}
+  - {name: coefficient, mechanism: potentiometer, description: "v = k u with 0 <= k <= 1", relation: "k*u"}
+  - {name: multiplier, mechanism: four-quadrant analogue multiplier, description: "v = u1 u2", relation: "u1*u2"}
+  - {name: comparator, mechanism: comparator driving an analogue switch, description: switches between two levels when u1 - u2 crosses zero}
+  - {name: limiter, mechanism: diode clamp, description: "v = min(max(u, low), high)", relation: "min(max(u, low), high)"}
+  - {name: function_generator, mechanism: diode function generator with breakpoints, description: piecewise linear through breakpoints}
+  - {name: sample_hold, mechanism: track-and-hold amplifier, description: "tracks while sampling, holds while holding"}
+observability:
+  - {name: oscilloscope, method: voltage probe on an output, resolution: {parameter: readout_resolution, unit: V}, disturbance: probe loading of about 1 MOhm and 10 pF}
+controllability:
+  - {name: potentiometer_setting, mechanism: setting coefficient potentiometers}
+  - {name: initial_condition, mechanism: initial-condition voltages applied in IC mode}
+  - {name: mode_control, mechanism: "IC, operate and hold switching"}
+temporal_behaviour:
+  latency: {not_established: depends on the op-amps chosen, unit: s}
+  bandwidth: {parameter: opamp_gbw, unit: Hz}
+  settling: {not_established: depends on the op-amps chosen, unit: s}
+  time_scaling: The patch compiler scales time so the fastest dynamics stay well inside the elements' bandwidth (ANA-03); every factor is recorded.
+noise_and_uncertainty:
+  - {name: finite_gain, model: integrator leakage from finite open-loop gain, parameters: [opamp_open_loop_gain]}
+  - {name: offset_and_drift, model: input offset voltage and its drift, parameters: [opamp_offset]}
+  - {name: tolerance, model: resistor and capacitor tolerances, parameters: [resistor_tolerance, capacitor_tolerance]}
+  - {name: thermal_noise, model: seeded white noise at the outputs, parameters: [output_noise_density]}
+resource_constraints:
+  - {name: machine_unit, limit: {parameter: machine_unit_voltage, unit: V}, kind: maximum, description: outputs saturate beyond it}
+  - {name: supply, limit: {value: 15.0, unit: V}, kind: nominal, description: op-amp supply rails}
+interface:
+  - {name: adc, direction: out, to: [digital_electronic], method: analogue-to-digital converter}
+  - {name: dac, direction: in, to: [digital_electronic], method: digital-to-analogue converter}
+  - {name: scope, direction: out, to: [human], method: oscilloscope or plotter}
+units:
+  system: UCUM
+  codes:
+    - {code: V, meaning: voltage}
+    - {code: "1", meaning: machine units and coefficients}
+    - {code: Hz, meaning: bandwidth}
+    - {code: s, meaning: time}
+    - {code: Ohm, meaning: resistance}
+    - {code: F, meaning: capacitance}
+    - {code: "%", meaning: tolerances}
+parameters:
+  - {name: machine_unit_voltage, value: 10.0, unit: V, evidence: {state: sourced, citation: "Sovereignty Architecture section 10, working decision RD11"}}
+  - {name: opamp_open_loop_gain, value: 100000.0, unit: "1", evidence: {state: assumed, assumption: a generic general-purpose op-amp class (Guidelines 9.3 macro-model)}}
+  - {name: opamp_gbw, value: 1000000.0, unit: Hz, evidence: {state: assumed, assumption: a generic general-purpose op-amp class}}
+  - {name: opamp_offset, unit: V, evidence: {state: not_established, reason: depends on the part and is measured on a bench build}}
+  - {name: resistor_tolerance, value: 1.0, unit: "%", evidence: {state: assumed, assumption: precision resistor class}}
+  - {name: capacitor_tolerance, value: 5.0, unit: "%", evidence: {state: assumed, assumption: film capacitor class}}
+  - {name: output_noise_density, unit: V, evidence: {state: not_established, reason: not measured}}
+  - {name: readout_resolution, value: 0.001, unit: V, evidence: {state: assumed, assumption: a digital oscilloscope at 10 V full scale}}
+capabilities:
+  - {model_operation: integrate, realised_by: [integrator], evidence: {state: sourced, citation: Guidelines 9.1}}
+  - {model_operation: sum, realised_by: [summer, inverter], evidence: {state: sourced, citation: Guidelines 9.1}}
+  - {model_operation: scale, realised_by: [coefficient], evidence: {state: sourced, citation: Guidelines 9.1}}
+  - {model_operation: multiply, realised_by: [multiplier], evidence: {state: sourced, citation: Guidelines 9.1}}
+  - {model_operation: function, realised_by: [function_generator], evidence: {state: sourced, citation: Guidelines 9.1}}
+  - {model_operation: compare, realised_by: [comparator, limiter], evidence: {state: sourced, citation: Guidelines 9.1}}
+realisation_models:
+  executable: {description: ideal computing elements assembled into an ODE system, where: hmnsq/anasim P11.3, state: planned, references: [OpenModelica]}
+  physical: {description: "op-amp circuits with finite gain and bandwidth, offset, drift, saturation, tolerances and noise; bill of materials", where: hmnsq/anasim P11.4 and P11.8, state: planned, references: [ngspice, OpenModelica]}
+provenance:
+  sources:
+    - {what: MRD section 9.9 and 9.11; Implementation Guidelines section 9}
+  evidence: {state: sourced, citation: "package repsynth 0.3.0, documents 01 and 02"}

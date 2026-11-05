@@ -1,0 +1,23 @@
+$ python3 tools/burp_probe.py --subjects minimal-esm,control-c,mathjs,js-yaml,uplot,three,jscad-modeling,planck,quantum-circuit,quirk
+[probe] minimal-esm: burp check on tests/burp/minimal-esm in 76 languages
+[probe] minimal-esm: exit 0, 2 files, 0.384 s, states {'exact_copied': 76}
+[probe] control-c: burp check on tests/burp/control-c in 76 languages
+[probe] control-c: exit 0, 1 files, 0.692 s, states {'exact_localised': 76}
+[probe] mathjs: burp check on docs/vendor/mathjs/15.2.0 in 76 languages
+[probe] mathjs: exit 0, 1266 files, 40.543 s, states {'exact_copied': 76}
+[probe] js-yaml: burp check on docs/vendor/js-yaml/5.5.0 in 76 languages
+[probe] js-yaml: exit 0, 4 files, 0.284 s, states {'exact_copied': 76}
+[probe] uplot: burp check on .cache/npm/x_uplot-1.6.32/package/dist/uPlot.esm.js in 76 languages
+[probe] uplot: exit 0, 1 files, 0.264 s, states {'exact_copied': 76}
+[probe] three: burp check on .cache/npm/x_three-0.187.0/package/src in 76 languages
+[probe] three: exit 0, 758 files, 28.748 s, states {'exact_copied': 76}
+[probe] jscad-modeling: burp check on .cache/npm/x_jscad-modeling-2.13.0/package/src in 76 languages
+[probe] jscad-modeling: exit 0, 1085 files, 58.526 s, states {'exact_copied': 76}
+[probe] planck: burp check on .cache/npm/x_planck-1.5.1/package/dist/planck.mjs in 76 languages
+[probe] planck: exit 0, 1 files, 0.554 s, states {'exact_copied': 76}
+[probe] quantum-circuit: burp check on .cache/npm/x_quantum-circuit-0.9.251/package/lib in 76 languages
+[probe] quantum-circuit: exit 0, 5 files, 0.616 s, states {'exact_copied': 76}
+[probe] quirk: burp check on .cache/quirk/src in 76 languages
+[probe] quirk: exit 0, 118 files, 6.99 s, states {'exact_copied': 76}
+
+[exit 0]

@@ -1,0 +1,17 @@
+$ node tools/mathcheck.mjs
+sin    656 of 20000 differ
+cos    675 of 20000 differ
+tan    747 of 20000 differ
+asin   1197 of 20000 differ
+acos   1106 of 20000 differ
+atan   1206 of 20000 differ
+sinh   1621 of 20000 differ
+cosh   1393 of 20000 differ
+tanh   11 of 20000 differ
+exp    1874 of 20000 differ
+log    1906 of 20000 differ
+log10  4347 of 20000 differ
+sqrt   0 of 20000 differ
+pow    1288 of 20000 differ
+
+[exit 0]

@@ -1,0 +1,40 @@
+$ python3 tools/validate.py --defects --json reports/validate/P9.2.json
+valid   substrate   spec/substrates/analogue-electronic.yaml
+valid   substrate   spec/substrates/digital-electronic.yaml
+valid   substrate   spec/substrates/mechanical.yaml
+valid   substrate   spec/substrates/optical.yaml
+valid   substrate   spec/substrates/quantum.yaml
+valid   model       spec/models/balanced-ternary-addition.yaml
+valid   model       spec/models/damped-driven-oscillator.yaml
+valid   model       spec/models/exponential-decay.yaml
+valid   model       spec/models/function-generation.yaml
+valid   model       spec/models/harmonic-oscillator.yaml
+valid   model       spec/models/lorenz.yaml
+valid   realisation spec/realisations/balanced-ternary.mechanical.yaml
+valid   realisation spec/realisations/harmonic-oscillator.analogue-electronic.yaml
+planted defects:
+  refused: parameter without an evidence state (expected path parameters[2].evidence)
+        parameters[2].evidence: schema required: 'evidence' is a required property
+  refused: quantity without a unit (expected path temporal_behaviour.latency.unit)
+        temporal_behaviour.latency.unit: schema required: 'unit' is a required property
+  refused: parameter without a unit (expected path parameters[0].unit)
+        parameters[0].unit: schema required: 'unit' is a required property
+  refused: not_established parameter carrying a guessed value (expected path parameters[4])
+        parameters[4]: schema not: {'name': 'integrator_slip_torque', 'unit': 'N.m', 'evidence': {'state': 'not_established', 'reason': 'depends on wheel material and contact force; measured only on a built integrator'}, 'v
+  refused: sourced parameter without its citation (expected path parameters[0].evidence.citation)
+        parameters[0].evidence.citation: schema required: 'citation' is a required property
+  refused: unknown UCUM code (expected path parameters[0].unit)
+        parameters[0].unit: UNIT at furlong: unknown UCUM unit symbol 'furlong'
+  refused: missing section (expected path noise_and_uncertainty)
+        noise_and_uncertainty: schema required: 'noise_and_uncertainty' is a required property
+  refused: capability realised by an undeclared operation (expected path capabilities[0].realised_by[0])
+        capabilities[0].realised_by[0]: names operation 'flux_capacitor', which is not declared
+  refused: model state without a unit (expected path states[0].unit)
+        states[0].unit: schema required: 'unit' is a required property
+  refused: model equation that does not parse (expected path equations[1].expression)
+        equations[1].expression: PARSE at expr:7: expected a number, a name or '(' but found '^'
+  refused: model equation reading an undeclared name (expected path model:equations[1].expression)
+        model:equations[1].expression: UNBOUND: name 'omegaa' is not declared
+validate: 13 files, 0 invalid; 11/11 planted defects refused
+
+[exit 0]

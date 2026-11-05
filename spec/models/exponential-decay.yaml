@@ -1,0 +1,27 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+identity:
+  id: exponential-decay
+  version: 1.0.0
+  title: Exponential decay
+kind: continuous
+semantics: >-
+  The quantity x decays at a rate proportional to itself, dx/dt = -k x, from x(0) = x_0.
+independent: {name: t, unit: s}
+parameters:
+  - {name: k, value: 0.5, unit: s-1, description: decay rate}
+states:
+  - {name: x, unit: "1", initial: 1.0, description: the decaying quantity}
+equations:
+  - {der: x, expression: "-k*x"}
+outputs:
+  - {name: x, unit: "1", expression: x}
+horizon: {t0: 0.0, t1: 10.0, unit: s}
+solver_defaults: {rk4_step: 0.01, rtol: 1.0e-10, atol: 1.0e-12}
+oracle:
+  kind: analytic
+  solution:
+    - {name: x, expression: "x_0*exp(-k*t)"}
+  error_bound: "closed form; evaluated in binary64, relative error below 1.0e-15 (mpmath check in tools/oracles.py)"
+provenance:
+  source: CMS-03 (MRD section 10.21)
+  evidence: sourced

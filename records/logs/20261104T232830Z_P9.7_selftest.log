@@ -1,0 +1,15 @@
+$ bash ops/selftest.sh
+baseline: tests exit 0 (1.9 s)
+caught     rk4-weight: a wrong RK4 coefficient (weight of k3 is 3, not 2); exit 1; 13 failing: ['bisection closes the bracket to 1e-12 of the step', 'a falling ball bounces at the analytic times (restart from the event)', 'an event can stop the run']
+caught     rk4-weight-subtle: a wrong RK4 coefficient (weight of k2 is 2.001); exit 1; 10 failing: ['bisection closes the bracket to 1e-12 of the step', 'a falling ball bounces at the analytic times (restart from the event)', 'an event can stop the run']
+caught     rk4-node: a wrong RK4 coefficient (k4 evaluated at y + h/2 k3); exit 1; 10 failing: ['a falling ball bounces at the analytic times (restart from the event)', 'T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors', 'T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors']
+caught     dopri-coefficient: a wrong Dormand-Prince coefficient (a32 = 9/41); exit 1; 8 failing: ['T-34 exponential-decay: RK4 and dopri54 against the mpmath vectors', 'T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors', 'T-34 damped-driven-oscillator: RK4 and dopri54 against the mpmath vectors']
+caught     unit-minute: a wrong unit factor (min = 61 s); exit 1; 1 failing: ['time units']
+caught     unit-milli: a wrong unit factor (prefix m = 1e-4); exit 1; 2 failing: ['time units', 'prefixes and compound units']
+caught     parser-add-mul: a parser precedence error (+ binds tighter than *); exit 1; 12 failing: ['precedence and associativity', 'T-32: every CMS-03 expression re-parses from its Modelica and SPICE forms to the same tree', 'T-32: 3000 seeded random trees round-trip through every form']
+caught     parser-neg-pow: a parser precedence error (unary minus binds tighter than ^); exit 1; 4 failing: ['precedence and associativity', 'T-34 harmonic-oscillator: RK4 and dopri54 against the mpmath vectors', 'T-34 harmonic-oscillator: fixed-step RK4 within 1e-4 of the amplitude']
+caught     parser-pow-left: a parser precedence error (^ left associative); exit 1; 1 failing: ['precedence and associativity']
+caught     vector-stale: a vector file that no longer regenerates (one digit changed); exit 1; 0 failing
+selftest: 10/10 planted defects caught
+
+[exit 0]

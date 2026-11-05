@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "subcore: shared web core for representation simulators"
+message: "If you use this software, please cite it as below."
+version: "0.1.0"
+license: GPL-3.0-or-later
+repository-code: "https://github.com/hmnsq/subcore"
+doi: "__SUBCORE_DOI__"
+authors:
+  - family-names: Choudhary
+    given-names: Abhishek
+    affiliation: AyeAI
+    orcid: "https://orcid.org/0009-0002-0684-8320"

@@ -1,0 +1,5 @@
+$ python3 tools/burp_probe.py --subjects subcore-tools
+[probe] subcore-tools: burp check on tools in 76 languages
+[probe] subcore-tools: exit 0, 12 files, 4.608 s, states {'exact_mixed': 76}
+
+[exit 0]

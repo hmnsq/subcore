@@ -1,0 +1,7 @@
+_notice: "© 1993–2026 Abhishek Choudhary. All rights reserved. AyeAI. SPDX-License-Identifier: CC0-1.0"
+representation: {kind: model, id: harmonic-oscillator, version: 1.0.0}
+substrate: {id: analogue-electronic, version: 0.1.0}
+mechanism: "two integrators and an inverter in a loop, with initial conditions (MRD section 9.10)"
+capability_class: not_established
+rung: SPEC
+evidence: {state: not_established, reason: "assigned at P11.3 and P12.1 from a run record; nothing has run"}
